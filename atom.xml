@@ -2,15 +2,15 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://yoursite.com</id>
     <title>沉鱼的博客</title>
-    <subtitle>subtitle</subtitle>
+    <subtitle>记录美好时刻</subtitle>
     <icon>http://yoursite.com/images/favicon.ico</icon>
     <link href="http://yoursite.com" />
     <author>
       <name>沉鱼</name>
     </author>
     <updated>2023-03-27T06:16:55.853Z</updated>
-    <category term="关键词1" />
-    <category term="关键词2" />
+    <category term="博文" />
+    <category term="资源分享" />
     <entry>
         <id>http://yoursite.com/hello-world/</id>
         <title>Hello World</title>
