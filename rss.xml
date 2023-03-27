@@ -3,29 +3,22 @@
     <channel>
         <title>沉鱼的博客</title>
         <subtitle>了解自我，超越自我</subtitle>
-        <icon>http://yoursite.com/images/favicon.ico</icon>
-        <link>http://yoursite.com</link>
+        <icon>http://scottalive.github.io/images/favicon.ico</icon>
+        <link>http://scottalive.github.io</link>
         <author>
           <name>沉鱼</name>
         </author>
         <description>分享个人技术学习笔记和资料整理</description>
         <language>zh-CN</language>
-        <pubDate>Mon, 27 Mar 2023 22:13:04 +0800</pubDate>
-        <lastBuildDate>Mon, 27 Mar 2023 22:13:04 +0800</lastBuildDate>
+        <pubDate>Mon, 27 Mar 2023 22:40:35 +0800</pubDate>
+        <lastBuildDate>Mon, 27 Mar 2023 22:40:35 +0800</lastBuildDate>
         <category term="博文" />
         <category term="资源分享" />
         <item>
-            <guid isPermalink="true">http://yoursite.com/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
-            <title></title>
-            <link>http://yoursite.com/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
-            <pubDate>Mon, 27 Mar 2023 22:13:04 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://yoursite.com/hello-world/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/hello-world/</guid>
             <title>Hello World</title>
-            <link>http://yoursite.com/hello-world/</link>
-            <pubDate>Mon, 27 Mar 2023 14:16:55 +0800</pubDate>
+            <link>http://scottalive.github.io/computer-science/java/hello-world/</link>
+            <pubDate>Mon, 27 Mar 2023 22:40:35 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
 &lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
