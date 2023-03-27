@@ -1,0 +1,489 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="沉鱼的博客" href="http://scottalive.github.io/rss.xml"><link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="http://scottalive.github.io/atom.xml"><link rel="alternate" type="application/json" title="沉鱼的博客" href="http://scottalive.github.io/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><link rel="canonical" href="http://scottalive.github.io/computer-science/python/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><title>字符串和常用数据结构 - Python - 计算机科学 | Chrono Cross = 沉鱼的博客 = 了解自我，超越自我</title><meta name="generator" content="Hexo 5.4.2"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">字符串和常用数据结构</h1><div class="meta"><span class="item" title="创建时间：2023-03-27 22:59:46"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2023-03-27T22:59:46+08:00">2023-03-27</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>12k</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>11 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Chrono Cross</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxfdlttj20zk0m8npd.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm07ih54j20zk0m84qp.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfw2t96j20zk0m8x6p.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/" itemprop="item" rel="index" title="分类于 计算机科学"><span itemprop="name">计算机科学</span></a><meta itemprop="position" content="1"></span><i class="ic i-angle-right"></i> <span class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/" itemprop="item" rel="index" title="分类于 Python"><span itemprop="name">Python</span></a><meta itemprop="position" content="2"></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="http://scottalive.github.io/computer-science/python/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="沉鱼"><meta itemprop="description" content="了解自我，超越自我, 分享个人技术学习笔记和资料整理"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="沉鱼的博客"></span><div class="body md" itemprop="articleBody"><h2 id="字符串和常用数据结构"><a class="anchor" href="#字符串和常用数据结构">#</a> 字符串和常用数据结构</h2><h3 id="使用字符串"><a class="anchor" href="#使用字符串">#</a> 使用字符串</h3><p>第二次世界大战促使了现代电子计算机的诞生，最初计算机被应用于导弹弹道的计算，而在计算机诞生后的很多年时间里，计算机处理的信息基本上都是数值型的信息。世界上的第一台电子计算机叫 ENIAC（电子数值积分计算机），诞生于美国的宾夕法尼亚大学，每秒钟能够完成约 5000 次浮点运算。随着时间的推移，虽然数值运算仍然是计算机日常工作中最为重要的事情之一，但是今天的计算机处理得更多的数据可能都是以文本的方式存在的，如果我们希望通过 Python 程序操作这些文本信息，就必须要先了解字符串类型以及与它相关的知识。</p><p>所谓<strong>字符串</strong>，就是由零个或多个字符组成的有限序列，一般记为<img data-src="./res/formula_5.png" alt="$${\displaystyle s=a_{1}a_{2}\dots a_{n}(0\leq n \leq \infty)}$$">。在 Python 程序中，如果我们把单个或多个字符用单引号或者双引号包围起来，就可以表示一个字符串。</p><pre><code class="language-Python">s1 = 'hello, world!'
+s2 = &quot;hello, world!&quot;
+# 以三个双引号或单引号开头的字符串可以折行
+s3 = &quot;&quot;&quot;
+hello, 
+world!
+&quot;&quot;&quot;
+print(s1, s2, s3, end='')
+</code></pre><p>可以在字符串中使用 <code>\</code> （反斜杠）来表示转义，也就是说 <code>\</code> 后面的字符不再是它原来的意义，例如： <code>\n</code> 不是代表反斜杠和字符 n，而是表示换行；而 <code>\t</code> 也不是代表反斜杠和字符 t，而是表示制表符。所以如果想在字符串中表示 <code>'</code> 要写成 <code>\'</code> ，同理想表示 <code>\</code> 要写成 <code>\\</code> 。可以运行下面的代码看看会输出什么。</p><pre><code class="language-Python">s1 = '\'hello, world!\''
+s2 = '\n\\hello, world!\\\n'
+print(s1, s2, end='')
+</code></pre><p>在 <code>\</code> 后面还可以跟一个八进制或者十六进制数来表示字符，例如 <code>\141</code> 和 <code>\x61</code> 都代表小写字母 <code>a</code> ，前者是八进制的表示法，后者是十六进制的表示法。也可以在 <code>\</code> 后面跟 Unicode 字符编码来表示字符，例如 <code>\u9a86\u660a</code> 代表的是中文 “骆昊”。运行下面的代码，看看输出了什么。</p><pre><code class="language-Python">s1 = '\141\142\143\x61\x62\x63'
+s2 = '\u9a86\u660a'
+print(s1, s2)
+</code></pre><p>如果不希望字符串中的 <code>\</code> 表示转义，我们可以通过在字符串的最前面加上字母 <code>r</code> 来加以说明，再看看下面的代码又会输出什么。</p><pre><code class="language-Python">s1 = r'\'hello, world!\''
+s2 = r'\n\\hello, world!\\\n'
+print(s1, s2, end='')
+</code></pre><p>Python 为字符串类型提供了非常丰富的运算符，我们可以使用 <code>+</code> 运算符来实现字符串的拼接，可以使用 <code>*</code> 运算符来重复一个字符串的内容，可以使用 <code>in</code> 和 <code>not in</code> 来判断一个字符串是否包含另外一个字符串（成员运算），我们也可以用 <code>[]</code> 和 <code>[:]</code> 运算符从字符串取出某个字符或某些字符（切片运算），代码如下所示。</p><pre><code class="language-Python">s1 = 'hello ' * 3
+print(s1) # hello hello hello 
+s2 = 'world'
+s1 += s2
+print(s1) # hello hello hello world
+print('ll' in s1) # True
+print('good' in s1) # False
+str2 = 'abc123456'
+# 从字符串中取出指定位置的字符(下标运算)
+print(str2[2]) # c
+# 字符串切片(从指定的开始索引到指定的结束索引)
+print(str2[2:5]) # c12
+print(str2[2:]) # c123456
+print(str2[2::2]) # c246
+print(str2[::2]) # ac246
+print(str2[::-1]) # 654321cba
+print(str2[-3:-1]) # 45
+</code></pre><p>在 Python 中，我们还可以通过一系列的方法来完成对字符串的处理，代码如下所示。</p><pre><code class="language-Python">str1 = 'hello, world!'
+# 通过内置函数len计算字符串的长度
+print(len(str1)) # 13
+# 获得字符串首字母大写的拷贝
+print(str1.capitalize()) # Hello, world!
+# 获得字符串每个单词首字母大写的拷贝
+print(str1.title()) # Hello, World!
+# 获得字符串变大写后的拷贝
+print(str1.upper()) # HELLO, WORLD!
+# 从字符串中查找子串所在位置
+print(str1.find('or')) # 8
+print(str1.find('shit')) # -1
+# 与find类似但找不到子串时会引发异常
+# print(str1.index('or'))
+# print(str1.index('shit'))
+# 检查字符串是否以指定的字符串开头
+print(str1.startswith('He')) # False
+print(str1.startswith('hel')) # True
+# 检查字符串是否以指定的字符串结尾
+print(str1.endswith('!')) # True
+# 将字符串以指定的宽度居中并在两侧填充指定的字符
+print(str1.center(50, '*'))
+# 将字符串以指定的宽度靠右放置左侧填充指定的字符
+print(str1.rjust(50, ' '))
+str2 = 'abc123456'
+# 检查字符串是否由数字构成
+print(str2.isdigit())  # False
+# 检查字符串是否以字母构成
+print(str2.isalpha())  # False
+# 检查字符串是否以数字和字母构成
+print(str2.isalnum())  # True
+str3 = '  jackfrued@126.com '
+print(str3)
+# 获得字符串修剪左右两侧空格之后的拷贝
+print(str3.strip())
+</code></pre><p>我们之前讲过，可以用下面的方式来格式化输出字符串。</p><pre><code class="language-Python">a, b = 5, 10
+print('%d * %d = %d' % (a, b, a * b))
+</code></pre><p>当然，我们也可以用字符串提供的方法来完成字符串的格式，代码如下所示。</p><pre><code class="language-Python">a, b = 5, 10
+print('&#123;0&#125; * &#123;1&#125; = &#123;2&#125;'.format(a, b, a * b))
+</code></pre><p>Python 3.6 以后，格式化字符串还有更为简洁的书写方式，就是在字符串前加上字母 <code>f</code> ，我们可以使用下面的语法糖来简化上面的代码。</p><pre><code class="language-Python">a, b = 5, 10
+print(f'&#123;a&#125; * &#123;b&#125; = &#123;a * b&#125;')
+</code></pre><p>除了字符串，Python 还内置了多种类型的数据结构，如果要在程序中保存和操作数据，绝大多数时候可以利用现有的数据结构来实现，最常用的包括列表、元组、集合和字典。</p><h3 id="使用列表"><a class="anchor" href="#使用列表">#</a> 使用列表</h3><p>不知道大家是否注意到，刚才我们讲到的字符串类型（ <code>str</code> ）和之前我们讲到的数值类型（ <code>int</code> 和 <code>float</code> ）有一些区别。数值类型是标量类型，也就是说这种类型的对象没有可以访问的内部结构；而字符串类型是一种结构化的、非标量类型，所以才会有一系列的属性和方法。接下来我们要介绍的列表（ <code>list</code> ），也是一种结构化的、非标量类型，它是值的有序序列，每个值都可以通过索引进行标识，定义列表可以将列表的元素放在 <code>[]</code> 中，多个元素用 <code>,</code> 进行分隔，可以使用 <code>for</code> 循环对列表元素进行遍历，也可以使用 <code>[]</code> 或 <code>[:]</code> 运算符取出列表中的一个或多个元素。</p><p>下面的代码演示了如何定义列表、如何遍历列表以及列表的下标运算。</p><pre><code class="language-Python">list1 = [1, 3, 5, 7, 100]
+print(list1) # [1, 3, 5, 7, 100]
+# 乘号表示列表元素的重复
+list2 = ['hello'] * 3
+print(list2) # ['hello', 'hello', 'hello']
+# 计算列表长度(元素个数)
+print(len(list1)) # 5
+# 下标(索引)运算
+print(list1[0]) # 1
+print(list1[4]) # 100
+# print(list1[5])  # IndexError: list index out of range
+print(list1[-1]) # 100
+print(list1[-3]) # 5
+list1[2] = 300
+print(list1) # [1, 3, 300, 7, 100]
+# 通过循环用下标遍历列表元素
+for index in range(len(list1)):
+    print(list1[index])
+# 通过for循环遍历列表元素
+for elem in list1:
+    print(elem)
+# 通过enumerate函数处理列表之后再遍历可以同时获得元素索引和值
+for index, elem in enumerate(list1):
+    print(index, elem)
+</code></pre><p>下面的代码演示了如何向列表中添加元素以及如何从列表中移除元素。</p><pre><code class="language-Python">list1 = [1, 3, 5, 7, 100]
+# 添加元素
+list1.append(200)
+list1.insert(1, 400)
+# 合并两个列表
+# list1.extend([1000, 2000])
+list1 += [1000, 2000]
+print(list1) # [1, 400, 3, 5, 7, 100, 200, 1000, 2000]
+print(len(list1)) # 9
+# 先通过成员运算判断元素是否在列表中，如果存在就删除该元素
+if 3 in list1:
+	list1.remove(3)
+if 1234 in list1:
+    list1.remove(1234)
+print(list1) # [1, 400, 5, 7, 100, 200, 1000, 2000]
+# 从指定的位置删除元素
+list1.pop(0)
+list1.pop(len(list1) - 1)
+print(list1) # [400, 5, 7, 100, 200, 1000]
+# 清空列表元素
+list1.clear()
+print(list1) # []
+</code></pre><p>和字符串一样，列表也可以做切片操作，通过切片操作我们可以实现对列表的复制或者将列表中的一部分取出来创建出新的列表，代码如下所示。</p><pre><code class="language-Python">fruits = ['grape', 'apple', 'strawberry', 'waxberry']
+fruits += ['pitaya', 'pear', 'mango']
+# 列表切片
+fruits2 = fruits[1:4]
+print(fruits2) # apple strawberry waxberry
+# 可以通过完整切片操作来复制列表
+fruits3 = fruits[:]
+print(fruits3) # ['grape', 'apple', 'strawberry', 'waxberry', 'pitaya', 'pear', 'mango']
+fruits4 = fruits[-3:-1]
+print(fruits4) # ['pitaya', 'pear']
+# 可以通过反向切片操作来获得倒转后的列表的拷贝
+fruits5 = fruits[::-1]
+print(fruits5) # ['mango', 'pear', 'pitaya', 'waxberry', 'strawberry', 'apple', 'grape']
+</code></pre><p>下面的代码实现了对列表的排序操作。</p><pre><code class="language-Python">list1 = ['orange', 'apple', 'zoo', 'internationalization', 'blueberry']
+list2 = sorted(list1)
+# sorted函数返回列表排序后的拷贝不会修改传入的列表
+# 函数的设计就应该像sorted函数一样尽可能不产生副作用
+list3 = sorted(list1, reverse=True)
+# 通过key关键字参数指定根据字符串长度进行排序而不是默认的字母表顺序
+list4 = sorted(list1, key=len)
+print(list1)
+print(list2)
+print(list3)
+print(list4)
+# 给列表对象发出排序消息直接在列表对象上进行排序
+list1.sort(reverse=True)
+print(list1)
+</code></pre><h3 id="生成式和生成器"><a class="anchor" href="#生成式和生成器">#</a> 生成式和生成器</h3><p>我们还可以使用列表的生成式语法来创建列表，代码如下所示。</p><pre><code class="language-Python">f = [x for x in range(1, 10)]
+print(f)
+f = [x + y for x in 'ABCDE' for y in '1234567']
+print(f)
+# 用列表的生成表达式语法创建列表容器
+# 用这种语法创建列表之后元素已经准备就绪所以需要耗费较多的内存空间
+f = [x ** 2 for x in range(1, 1000)]
+print(sys.getsizeof(f))  # 查看对象占用内存的字节数
+print(f)
+# 请注意下面的代码创建的不是一个列表而是一个生成器对象
+# 通过生成器可以获取到数据但它不占用额外的空间存储数据
+# 每次需要数据的时候就通过内部的运算得到数据(需要花费额外的时间)
+f = (x ** 2 for x in range(1, 1000))
+print(sys.getsizeof(f))  # 相比生成式生成器不占用存储数据的空间
+print(f)
+for val in f:
+    print(val)
+</code></pre><p>除了上面提到的生成器语法，Python 中还有另外一种定义生成器的方式，就是通过 <code>yield</code> 关键字将一个普通函数改造成生成器函数。下面的代码演示了如何实现一个生成<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTk2JTkwJUU2JUIzJUEyJUU5JTgyJUEzJUU1JUE1JTkxJUU2JTk1JUIwJUU1JTg4JTk3">斐波拉切数列</span>的生成器。所谓斐波拉切数列可以通过下面<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JTgwJTkyJUU1JUJEJTky">递归</span>的方法来进行定义：</p><p><img data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAPBAMAAABZ6/G2AAAAMFBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAEHRSTlMAEJnd/7t2VGZEzasy74kiqrYNrwAAALJJREFUeAF10IFGBFEUBuBvtzTtdW09Qwm9QqANSwwLKJAETRZ6jBA2WlAIPcAAEAQBYh9hACkICxBZqLmX+RzgHD/np7d7tLM3liqqKwg1l1Jz4RXr1zxKndiscb8d3UmVBgt8GspsTcQRDr7GMnGyGr3SrVido/+y0vytikMzwU0SWBqM6D/hwZu2Y8WCtQZTP+1ApzZqljNcWOYvfxs+n2HqPStq//9qrkNQ6RA/GrlfNOYrTK7umLsAAAAASUVORK5CYII=" alt="$${\displaystyle F_{0}=0}$$"></p><p><img data-src="./res/formula_7.png" alt="$${\displaystyle F_{1}=1}$$"></p><p><img data-src="./res/formula_8.png" alt="$${\displaystyle F_{n}=F_{n-1}+F_{n-2}}({n}\geq{2})$$"></p><p><img data-src="data:image/png;base64,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" alt=""></p><pre><code class="language-Python">def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+        yield a
+
+
+def main():
+    for val in fib(20):
+        print(val)
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h3 id="使用元组"><a class="anchor" href="#使用元组">#</a> 使用元组</h3><p>Python 中的元组与列表类似也是一种容器数据类型，可以用一个变量（对象）来存储多个数据，不同之处在于元组的元素不能修改，在前面的代码中我们已经不止一次使用过元组了。顾名思义，我们把多个元素组合到一起就形成了一个元组，所以它和列表一样可以保存多条数据。下面的代码演示了如何定义和使用元组。</p><pre><code class="language-Python"># 定义元组
+t = ('骆昊', 38, True, '四川成都')
+print(t)
+# 获取元组中的元素
+print(t[0])
+print(t[3])
+# 遍历元组中的值
+for member in t:
+    print(member)
+# 重新给元组赋值
+# t[0] = '王大锤'  # TypeError
+# 变量t重新引用了新的元组原来的元组将被垃圾回收
+t = ('王大锤', 20, True, '云南昆明')
+print(t)
+# 将元组转换成列表
+person = list(t)
+print(person)
+# 列表是可以修改它的元素的
+person[0] = '李小龙'
+person[1] = 25
+print(person)
+# 将列表转换成元组
+fruits_list = ['apple', 'banana', 'orange']
+fruits_tuple = tuple(fruits_list)
+print(fruits_tuple)
+</code></pre><p>这里有一个非常值得探讨的问题，我们已经有了列表这种数据结构，为什么还需要元组这样的类型呢？</p><ol><li>元组中的元素是无法修改的，事实上我们在项目中尤其是<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLWhhbnMvJUU1JUE0JTlBJUU3JUJBJUJGJUU3JUE4JThC">多线程</span>环境（后面会讲到）中可能更喜欢使用的是那些不变对象（一方面因为对象状态不能修改，所以可以避免由此引起的不必要的程序错误，简单的说就是一个不变的对象要比可变的对象更加容易维护；另一方面因为没有任何一个线程能够修改不变对象的内部状态，一个不变对象自动就是线程安全的，这样就可以省掉处理同步化的开销。一个不变对象可以方便的被共享访问）。所以结论就是：如果不需要对元素进行添加、删除、修改的时候，可以考虑使用元组，当然如果一个方法要返回多个值，使用元组也是不错的选择。</li><li>元组在创建时间和占用的空间上面都优于列表。我们可以使用 sys 模块的 getsizeof 函数来检查存储同样的元素的元组和列表各自占用了多少内存空间，这个很容易做到。我们也可以在 ipython 中使用魔法指令 % timeit 来分析创建同样内容的元组和列表所花费的时间，下图是我的 macOS 系统上测试的结果。</li></ol><h3 id="使用集合"><a class="anchor" href="#使用集合">#</a> 使用集合</h3><p>Python 中的集合跟数学上的集合是一致的，不允许有重复元素，而且可以进行交集、并集、差集等运算。</p><p><img data-src="data:image/png;base64,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6TFO6jD+06HYlStXnn/hhW4j0sVMje899u7IT631Ek1NrDpsu+0osxsMjWejrR+oR+qE9779++cvXLBy/ao7nr131LNjGtQtPrtVXq+4Z9/er7/+emJ0PZIwG09H35/w2PHj3Umkiu2HbKvz/fqbb4qfYXbFwrJdsVPcDffVoT/00EP9pLK9V5zePqJC8N13323MZOGiRZWGd9xxR2Ow53uYxRDKqvfff//e++7r/2GLba3ffPPNOqPhizBoKypXGkppdLqetzl1m/ZtrZJ45pMXhnxMSQtpUYuWLG6xO3bt7B5U165f7+Wmt0eqlzh67FgXGhXklYYr1q3a88D+h99+fJjR12adtISWs3L96pZZLdhgSSfDpr1HEmajzbb2nI8/+aQp/jt37SqKFi1a1Mdqmq7rqrRq2OHwTzqSagdrgkm/rU1Z2FttisauDejuFS2t/Jix467tt23NjUCWPd1xoxUpilqFHwK4c7+dxjh48GBrmgrZasrCvuPW1rdmNW6OdXHYo3naMapuW6BJiYxho200ssGGO+68c+XqVUXR/EULmppRzvUMmrVb16/ftWnD7u/e+qJveyRmv6pBzWrcfPo777qrc0LHT5xoUT9stDO9R/r448efeKLeprN3rUKB1Op0q7DVG9es277xh5Xtra/7ST/vt7WpZe2beNkwyYcffdTxZUub/vQSZtO4//TnL5Pa6NsUbv1WP5nM1FRt5kY//uuVze9WNv2qBi4Iw0arRxJmACDMAECYASDMAECYAYAwAwBhBoAwAwBhNjMBIMwAQJgBgDADQJgBgDADAGEGAMIMAGEGAMIMAIQZAAgzAIQZAAgzABBmACDMABBmACDMAECYAYAwA0CYAYAwAwBhBgDCDABhBgDCDACEGQAIMwCEGQAIMwAQZgAgzAAQZgAgzABAmAGAMANAmAGAMAMAYQYAwozJyckbN278Y7Pa1PL2bAMMBoNr1679Y7Nbt25NTEwIs+nBE098y945QMuRdHF8T2zbtrP2bmzbtm0+hc+xbdu2bds2fif17U2fmcm874QP97fIndvV1T05detfdaume3GXrl0xPppatWuPGj1KPhYuXPjw4cP2xcaOHVu1WjUMRQkJ0LP/+OOPDx48cKgNX2Jg9/Id9v7t27c3bNgQ46Pp3r17z14934d8rVpr1661L7Z69eq///lHxUz5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" alt=""></p><p>可以按照下面代码所示的方式来创建和使用集合。</p><pre><code class="language-Python"># 创建集合的字面量语法
+set1 = &#123;1, 2, 3, 3, 3, 2&#125;
+print(set1)
+print('Length =', len(set1))
+# 创建集合的构造器语法(面向对象部分会进行详细讲解)
+set2 = set(range(1, 10))
+set3 = set((1, 2, 3, 3, 2, 1))
+print(set2, set3)
+# 创建集合的推导式语法(推导式也可以用于推导集合)
+set4 = &#123;num for num in range(1, 100) if num % 3 == 0 or num % 5 == 0&#125;
+print(set4)
+</code></pre><p>向集合添加元素和从集合删除元素。</p><pre><code class="language-Python">set1.add(4)
+set1.add(5)
+set2.update([11, 12])
+set2.discard(5)
+if 4 in set2:
+    set2.remove(4)
+print(set1, set2)
+print(set3.pop())
+print(set3)
+</code></pre><p>集合的成员、交集、并集、差集等运算。</p><pre><code class="language-Python"># 集合的交集、并集、差集、对称差运算
+print(set1 &amp; set2)
+# print(set1.intersection(set2))
+print(set1 | set2)
+# print(set1.union(set2))
+print(set1 - set2)
+# print(set1.difference(set2))
+print(set1 ^ set2)
+# print(set1.symmetric_difference(set2))
+# 判断子集和超集
+print(set2 &lt;= set1)
+# print(set2.issubset(set1))
+print(set3 &lt;= set1)
+# print(set3.issubset(set1))
+print(set1 &gt;= set2)
+# print(set1.issuperset(set2))
+print(set1 &gt;= set3)
+# print(set1.issuperset(set3))
+</code></pre><blockquote><p><strong>说明：</strong> Python 中允许通过一些特殊的方法来为某种类型或数据结构自定义运算符（后面的章节中会讲到），上面的代码中我们对集合进行运算的时候可以调用集合对象的方法，也可以直接使用对应的运算符，例如 <code>&amp;</code> 运算符跟 intersection 方法的作用就是一样的，但是使用运算符让代码更加直观。</p></blockquote><h3 id="使用字典"><a class="anchor" href="#使用字典">#</a> 使用字典</h3><p>字典是另一种可变容器模型，Python 中的字典跟我们生活中使用的字典是一样一样的，它可以存储任意类型对象，与列表、集合不同的是，字典的每个元素都是由一个键和一个值组成的 “键值对”，键和值通过冒号分开。下面的代码演示了如何定义和使用字典。</p><pre><code class="language-Python"># 创建字典的字面量语法
+scores = &#123;'骆昊': 95, '白元芳': 78, '狄仁杰': 82&#125;
+print(scores)
+# 创建字典的构造器语法
+items1 = dict(one=1, two=2, three=3, four=4)
+# 通过zip函数将两个序列压成字典
+items2 = dict(zip(['a', 'b', 'c'], '123'))
+# 创建字典的推导式语法
+items3 = &#123;num: num ** 2 for num in range(1, 10)&#125;
+print(items1, items2, items3)
+# 通过键可以获取字典中对应的值
+print(scores['骆昊'])
+print(scores['狄仁杰'])
+# 对字典中所有键值对进行遍历
+for key in scores:
+    print(f'&#123;key&#125;: &#123;scores[key]&#125;')
+# 更新字典中的元素
+scores['白元芳'] = 65
+scores['诸葛王朗'] = 71
+scores.update(冷面=67, 方启鹤=85)
+print(scores)
+if '武则天' in scores:
+    print(scores['武则天'])
+print(scores.get('武则天'))
+# get方法也是通过键获取对应的值但是可以设置默认值
+print(scores.get('武则天', 60))
+# 删除字典中的元素
+print(scores.popitem())
+print(scores.popitem())
+print(scores.pop('骆昊', 100))
+# 清空字典
+scores.clear()
+print(scores)
+</code></pre><h3 id="练习"><a class="anchor" href="#练习">#</a> 练习</h3><h4 id="练习1在屏幕上显示跑马灯文字"><a class="anchor" href="#练习1在屏幕上显示跑马灯文字">#</a> 练习 1：在屏幕上显示跑马灯文字。</h4><p>参考答案：</p><pre><code class="language-Python">import os
+import time
+
+
+def main():
+    content = '北京欢迎你为你开天辟地…………'
+    while True:
+        # 清理屏幕上的输出
+        os.system('cls')  # os.system('clear')
+        print(content)
+        # 休眠200毫秒
+        time.sleep(0.2)
+        content = content[1:] + content[0]
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h4 id="练习2设计一个函数产生指定长度的验证码验证码由大小写字母和数字构成"><a class="anchor" href="#练习2设计一个函数产生指定长度的验证码验证码由大小写字母和数字构成">#</a> 练习 2：设计一个函数产生指定长度的验证码，验证码由大小写字母和数字构成。</h4><p>参考答案：</p><pre><code class="language-Python">import random
+
+
+def generate_code(code_len=4):
+    &quot;&quot;&quot;
+    生成指定长度的验证码
+
+    :param code_len: 验证码的长度(默认4个字符)
+
+    :return: 由大小写英文字母和数字构成的随机验证码
+    &quot;&quot;&quot;
+    all_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    last_pos = len(all_chars) - 1
+    code = ''
+    for _ in range(code_len):
+        index = random.randint(0, last_pos)
+        code += all_chars[index]
+    return code
+</code></pre><h4 id="练习3设计一个函数返回给定文件名的后缀名"><a class="anchor" href="#练习3设计一个函数返回给定文件名的后缀名">#</a> 练习 3：设计一个函数返回给定文件名的后缀名。</h4><p>参考答案：</p><pre><code class="language-Python">def get_suffix(filename, has_dot=False):
+    &quot;&quot;&quot;
+    获取文件名的后缀名
+
+    :param filename: 文件名
+    :param has_dot: 返回的后缀名是否需要带点
+    :return: 文件的后缀名
+    &quot;&quot;&quot;
+    pos = filename.rfind('.')
+    if 0 &lt; pos &lt; len(filename) - 1:
+        index = pos if has_dot else pos + 1
+        return filename[index:]
+    else:
+        return ''
+</code></pre><h4 id="练习4设计一个函数返回传入的列表中最大和第二大的元素的值"><a class="anchor" href="#练习4设计一个函数返回传入的列表中最大和第二大的元素的值">#</a> 练习 4：设计一个函数返回传入的列表中最大和第二大的元素的值。</h4><p>参考答案：</p><pre><code class="language-Python">def max2(x):
+    m1, m2 = (x[0], x[1]) if x[0] &gt; x[1] else (x[1], x[0])
+    for index in range(2, len(x)):
+        if x[index] &gt; m1:
+            m2 = m1
+            m1 = x[index]
+        elif x[index] &gt; m2:
+            m2 = x[index]
+    return m1, m2
+</code></pre><h4 id="练习5计算指定的年月日是这一年的第几天"><a class="anchor" href="#练习5计算指定的年月日是这一年的第几天">#</a> 练习 5：计算指定的年月日是这一年的第几天。</h4><p>参考答案：</p><pre><code class="language-Python">def is_leap_year(year):
+    &quot;&quot;&quot;
+    判断指定的年份是不是闰年
+
+    :param year: 年份
+    :return: 闰年返回True平年返回False
+    &quot;&quot;&quot;
+    return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
+
+
+def which_day(year, month, date):
+    &quot;&quot;&quot;
+    计算传入的日期是这一年的第几天
+
+    :param year: 年
+    :param month: 月
+    :param date: 日
+    :return: 第几天
+    &quot;&quot;&quot;
+    days_of_month = [
+        [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+        [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    ][is_leap_year(year)]
+    total = 0
+    for index in range(month - 1):
+        total += days_of_month[index]
+    return total + date
+
+
+def main():
+    print(which_day(1980, 11, 28))
+    print(which_day(1981, 12, 31))
+    print(which_day(2018, 1, 1))
+    print(which_day(2016, 3, 1))
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h4 id="练习6打印杨辉三角"><a class="anchor" href="#练习6打印杨辉三角">#</a> 练习 6：打印<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTlEJUE4JUU4JUJFJTg5JUU0JUI4JTg5JUU4JUE3JTkyJUU1JUJEJUEy">杨辉三角</span>。</h4><p>参考答案：</p><pre><code class="language-Python">def main():
+    num = int(input('Number of rows: '))
+    yh = [[]] * num
+    for row in range(len(yh)):
+        yh[row] = [None] * (row + 1)
+        for col in range(len(yh[row])):
+            if col == 0 or col == row:
+                yh[row][col] = 1
+            else:
+                yh[row][col] = yh[row - 1][col] + yh[row - 1][col - 1]
+            print(yh[row][col], end='\t')
+        print()
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h3 id="综合案例"><a class="anchor" href="#综合案例">#</a> 综合案例</h3><h4 id="案例1双色球选号"><a class="anchor" href="#案例1双色球选号">#</a> 案例 1：双色球选号。</h4><pre><code class="language-Python">from random import randrange, randint, sample
+
+
+def display(balls):
+    &quot;&quot;&quot;
+    输出列表中的双色球号码
+    &quot;&quot;&quot;
+    for index, ball in enumerate(balls):
+        if index == len(balls) - 1:
+            print('|', end=' ')
+        print('%02d' % ball, end=' ')
+    print()
+
+
+def random_select():
+    &quot;&quot;&quot;
+    随机选择一组号码
+    &quot;&quot;&quot;
+    red_balls = [x for x in range(1, 34)]
+    selected_balls = []
+    selected_balls = sample(red_balls, 6)
+    selected_balls.sort()
+    selected_balls.append(randint(1, 16))
+    return selected_balls
+
+
+def main():
+    n = int(input('机选几注: '))
+    for _ in range(n):
+        display(random_select())
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><blockquote><p><strong>说明：</strong> 上面使用 random 模块的 sample 函数来实现从列表中选择不重复的 n 个元素。</p></blockquote><h4 id="综合案例2约瑟夫环问题"><a class="anchor" href="#综合案例2约瑟夫环问题">#</a> 综合案例 2：<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUJBJUE2JUU3JTkxJTlGJUU1JUE0JUFCJUU2JTk2JUFGJUU5JTk3JUFFJUU5JUEyJTk4">约瑟夫环问题</span>。</h4><pre><code class="language-Python">&quot;&quot;&quot;
+《幸运的基督徒》
+有15个基督徒和15个非基督徒在海上遇险，为了能让一部分人活下来不得不将其中15个人扔到海里面去，有个人想了个办法就是大家围成一个圈，由某个人开始从1报数，报到9的人就扔到海里面，他后面的人接着从1开始报数，报到9的人继续扔到海里面，直到扔掉15个人。由于上帝的保佑，15个基督徒都幸免于难，问这些人最开始是怎么站的，哪些位置是基督徒哪些位置是非基督徒。
+&quot;&quot;&quot;
+
+
+def main():
+    persons = [True] * 30
+    counter, index, number = 0, 0, 0
+    while counter &lt; 15:
+        if persons[index]:
+            number += 1
+            if number == 9:
+                persons[index] = False
+                counter += 1
+                number = 0
+        index += 1
+        index %= 30
+    for person in persons:
+        print('基' if person else '非', end='')
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre><h4 id="综合案例3井字棋游戏"><a class="anchor" href="#综合案例3井字棋游戏">#</a> 综合案例 3：<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJBJTk1JUU1JUFEJTk3JUU2JUEzJThC">井字棋</span>游戏。</h4><pre><code class="language-Python">import os
+
+
+def print_board(board):
+    print(board['TL'] + '|' + board['TM'] + '|' + board['TR'])
+    print('-+-+-')
+    print(board['ML'] + '|' + board['MM'] + '|' + board['MR'])
+    print('-+-+-')
+    print(board['BL'] + '|' + board['BM'] + '|' + board['BR'])
+
+
+def main():
+    init_board = &#123;
+        'TL': ' ', 'TM': ' ', 'TR': ' ',
+        'ML': ' ', 'MM': ' ', 'MR': ' ',
+        'BL': ' ', 'BM': ' ', 'BR': ' '
+    &#125;
+    begin = True
+    while begin:
+        curr_board = init_board.copy()
+        begin = False
+        turn = 'x'
+        counter = 0
+        os.system('clear')
+        print_board(curr_board)
+        while counter &lt; 9:
+            move = input('轮到%s走棋, 请输入位置: ' % turn)
+            if curr_board[move] == ' ':
+                counter += 1
+                curr_board[move] = turn
+                if turn == 'x':
+                    turn = 'o'
+                else:
+                    turn = 'x'
+            os.system('clear')
+            print_board(curr_board)
+        choice = input('再玩一局?(yes|no)')
+        begin = choice == 'yes'
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><blockquote><p><strong>说明：</strong> 最后这个案例来自<span class="exturl" data-url="aHR0cHM6Ly9pdGVtLmpkLmNvbS8xMTk0Mzg1My5odG1s">《Python 编程快速上手：让繁琐工作自动化》</span>一书（这本书对有编程基础想迅速使用 Python 将日常工作自动化的人来说还是不错的选择），对代码做了一点点的调整。</p></blockquote></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2023-03-28 00:01:49" itemprop="dateModified" datetime="2023-03-28T00:01:49+08:00">2023-03-28</time> </span><span id="computer-science/python/07.字符串和常用数据结构/" class="item leancloud_visitors" data-flag-title="字符串和常用数据结构" title="阅读次数"><span class="icon"><i class="ic i-eye"></i> </span><span class="text">阅读次数</span> <span class="leancloud-visitors-count"></span> <span class="text">次</span></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="沉鱼 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="沉鱼 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="沉鱼 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>沉鱼 <i class="ic i-at"><em>@</em></i>沉鱼的博客</li><li class="link"><strong>本文链接：</strong> <a href="http://scottalive.github.io/computer-science/python/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="字符串和常用数据结构">http://scottalive.github.io/computer-science/python/07.字符串和常用数据结构/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/computer-science/python/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url" rel="prev" data-background-image="&#x2F;assets&#x2F;formula_3.png" title="函数和模块的使用"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i> Python</span><h3>函数和模块的使用</h3></a></div><div class="item right"><a href="/computer-science/python/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipesx5fdwj20zk0m81kx.jpg" title="面向对象编程基础"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i> Python</span><h3>面向对象编程基础</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">字符串和常用数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.</span> <span class="toc-text">使用字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.</span> <span class="toc-text">使用列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">生成式和生成器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%85%83%E7%BB%84"><span class="toc-number">1.4.</span> <span class="toc-text">使用元组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88"><span class="toc-number">1.5.</span> <span class="toc-text">使用集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%97%E5%85%B8"><span class="toc-number">1.6.</span> <span class="toc-text">使用字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">1.7.</span> <span class="toc-text">练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A01%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%8A%E6%98%BE%E7%A4%BA%E8%B7%91%E9%A9%AC%E7%81%AF%E6%96%87%E5%AD%97"><span class="toc-number">1.7.1.</span> <span class="toc-text">练习 1：在屏幕上显示跑马灯文字。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A02%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E4%BA%A7%E7%94%9F%E6%8C%87%E5%AE%9A%E9%95%BF%E5%BA%A6%E7%9A%84%E9%AA%8C%E8%AF%81%E7%A0%81%E9%AA%8C%E8%AF%81%E7%A0%81%E7%94%B1%E5%A4%A7%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E5%92%8C%E6%95%B0%E5%AD%97%E6%9E%84%E6%88%90"><span class="toc-number">1.7.2.</span> <span class="toc-text">练习 2：设计一个函数产生指定长度的验证码，验证码由大小写字母和数字构成。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A03%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E7%BB%99%E5%AE%9A%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E5%90%8E%E7%BC%80%E5%90%8D"><span class="toc-number">1.7.3.</span> <span class="toc-text">练习 3：设计一个函数返回给定文件名的后缀名。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A04%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E4%BC%A0%E5%85%A5%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%AD%E6%9C%80%E5%A4%A7%E5%92%8C%E7%AC%AC%E4%BA%8C%E5%A4%A7%E7%9A%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%80%BC"><span class="toc-number">1.7.4.</span> <span class="toc-text">练习 4：设计一个函数返回传入的列表中最大和第二大的元素的值。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A05%E8%AE%A1%E7%AE%97%E6%8C%87%E5%AE%9A%E7%9A%84%E5%B9%B4%E6%9C%88%E6%97%A5%E6%98%AF%E8%BF%99%E4%B8%80%E5%B9%B4%E7%9A%84%E7%AC%AC%E5%87%A0%E5%A4%A9"><span class="toc-number">1.7.5.</span> <span class="toc-text">练习 5：计算指定的年月日是这一年的第几天。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A06%E6%89%93%E5%8D%B0%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92"><span class="toc-number">1.7.6.</span> <span class="toc-text">练习 6：打印杨辉三角。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B"><span class="toc-number">1.8.</span> <span class="toc-text">综合案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B1%E5%8F%8C%E8%89%B2%E7%90%83%E9%80%89%E5%8F%B7"><span class="toc-number">1.8.1.</span> <span class="toc-text">案例 1：双色球选号。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B2%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98"><span class="toc-number">1.8.2.</span> <span class="toc-text">综合案例 2：约瑟夫环问题。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B3%E4%BA%95%E5%AD%97%E6%A3%8B%E6%B8%B8%E6%88%8F"><span class="toc-number">1.8.3.</span> <span class="toc-text">综合案例 3：井字棋游戏。</span></a></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li><a href="/computer-science/python/01.%E5%88%9D%E8%AF%86Python/" rel="bookmark" title="初识Python">初识Python</a></li><li><a href="/computer-science/python/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/" rel="bookmark" title="语言元素">语言元素</a></li><li><a href="/computer-science/python/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="分支结构">分支结构</a></li><li><a href="/computer-science/python/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="循环结构">循环结构</a></li><li><a href="/computer-science/python/05.%E6%9E%84%E9%80%A0%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91/" rel="bookmark" title="构造程序逻辑">构造程序逻辑</a></li><li><a href="/computer-science/python/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="bookmark" title="函数和模块的使用">函数和模块的使用</a></li><li class="active"><a href="/computer-science/python/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="字符串和常用数据结构">字符串和常用数据结构</a></li><li><a href="/computer-science/python/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="bookmark" title="面向对象编程基础">面向对象编程基础</a></li><li><a href="/computer-science/python/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" rel="bookmark" title="面向对象进阶">面向对象进阶</a></li><li><a href="/computer-science/python/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="bookmark" title="图形用户界面和游戏开发">图形用户界面和游戏开发</a></li><li><a href="/computer-science/python/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8/" rel="bookmark" title="文件和异常">文件和异常</a></li><li><a href="/computer-science/python/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="bookmark" title="使用正则表达式">使用正则表达式</a></li><li><a href="/computer-science/python/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" rel="bookmark" title="进程和线程">进程和线程</a></li><li><a href="/computer-science/python/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="网络编程入门">网络编程入门</a></li><li><a href="/computer-science/python/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" rel="bookmark" title="图像和办公文档处理">图像和办公文档处理</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="沉鱼" data-src="/images/avatar.jpg"><p class="name" itemprop="name">沉鱼</p><div class="description" itemprop="description">分享个人技术学习笔记和资料整理</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">16</span> <span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">3</span> <span class="name">分类</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWU=" title="https:&#x2F;&#x2F;github.com&#x2F;amehime"><i class="ic i-github"></i></span> <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9hbWVoaW1l" title="https:&#x2F;&#x2F;twitter.com&#x2F;amehime"><i class="ic i-twitter"></i></span> <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9ydXJpc216aw==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;rurismzk"><i class="ic i-zhihu"></i></span> <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEyODg2ODIz" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;12886823"><i class="ic i-cloud-music"></i></span> <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vYW1laGltZQ==" title="https:&#x2F;&#x2F;weibo.com&#x2F;amehime"><i class="ic i-weibo"></i></span> <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS9hbWVoaW1l" title="https:&#x2F;&#x2F;about.me&#x2F;amehime"><i class="ic i-address-card"></i></span> <span class="exturl item email" data-url="bWFpbHRvOnlvdXJuYW1lQG1haWwuY29t" title="mailto:yourname@mail.com"><i class="ic i-envelope"></i></span> <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="ic i-facebook"></i></span> <span class="exturl item stackoverflow" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="ic i-stack-overflow"></i></span> <span class="exturl item instagram" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="ic i-instagram"></i></span> <span class="exturl item skype" data-url="c2t5cGU6eW91cm5hbWU/Y2FsbHxjaGF0" title="skype:yourname?call|chat"><i class="ic i-skype"></i></span> <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9wZW9wbGUveW91cm5hbWUv" title="https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;yourname&#x2F;"><i class="ic i-douban"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>friends</a></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/computer-science/python/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/computer-science/python/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a></div><span><a href="/computer-science/java/hello-world/" title="测试文章">测试文章</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a></div><span><a href="/computer-science/python/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" title="网络编程入门">网络编程入门</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a></div><span><a href="/computer-science/python/01.%E5%88%9D%E8%AF%86Python/" title="初识Python">初识Python</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a></div><span><a href="/computer-science/python/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" title="面向对象进阶">面向对象进阶</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a></div><span><a href="/computer-science/python/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" title="图形用户界面和游戏开发">图形用户界面和游戏开发</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a></div><span><a href="/computer-science/python/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" title="图像和办公文档处理">图像和办公文档处理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a></div><span><a href="/computer-science/python/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" title="面向对象编程基础">面向对象编程基础</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a></div><span><a href="/computer-science/python/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="字符串和常用数据结构">字符串和常用数据结构</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a></div><span><a href="/computer-science/python/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/" title="循环结构">循环结构</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a></div><span><a href="/computer-science/python/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="使用正则表达式">使用正则表达式</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2010 – <span itemprop="copyrightYear">2023</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">沉鱼 @ Chrono Cross</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">99k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">1:30</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"computer-science/python/07.字符串和常用数据结构/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script></body></html>
