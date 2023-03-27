@@ -7,6 +7,14 @@
     "home_page_url": "http://yoursite.com",
     "items": [
         {
+            "id": "http://yoursite.com/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/",
+            "url": "http://yoursite.com/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/",
+            "title": "",
+            "date_published": "2023-03-27T14:13:04.431Z",
+            "content_html": "",
+            "tags": []
+        },
+        {
             "id": "http://yoursite.com/hello-world/",
             "url": "http://yoursite.com/hello-world/",
             "title": "Hello World",
