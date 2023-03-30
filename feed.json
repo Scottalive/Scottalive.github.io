@@ -7,6 +7,20 @@
     "home_page_url": "http://www.luotao.shop",
     "items": [
         {
+            "id": "http://www.luotao.shop/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/",
+            "url": "http://www.luotao.shop/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/",
+            "title": "Java基本数据类型",
+            "date_published": "2023-03-30T16:00:01.000Z",
+            "content_html": "<h2 id=\"java八大基本数据类型\"><a class=\"anchor\" href=\"#java八大基本数据类型\">#</a> Java 八大基本数据类型</h2>\n<table>\n<thead>\n<tr>\n<th>数据类型</th>\n<th>大小</th>\n<th>默认值</th>\n<th>取值范围</th>\n<th>描述</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>byte</td>\n<td>1 字节</td>\n<td>0</td>\n<td>-128 到 127</td>\n<td>有符号整数</td>\n</tr>\n<tr>\n<td>short</td>\n<td>2 字节</td>\n<td>0</td>\n<td>-32,768 到 32,767</td>\n<td>有符号整数</td>\n</tr>\n<tr>\n<td>int</td>\n<td>4 字节</td>\n<td>0</td>\n<td>-2,147,483,648 到 2,147,483,647</td>\n<td>有符号整数</td>\n</tr>\n<tr>\n<td>long</td>\n<td>8 字节</td>\n<td>0L</td>\n<td>-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807</td>\n<td>有符号整数</td>\n</tr>\n<tr>\n<td>float</td>\n<td>4 字节</td>\n<td>0.0f</td>\n<td>1.4E-45 到 3.4028235E38</td>\n<td>浮点数</td>\n</tr>\n<tr>\n<td>double</td>\n<td>8 字节</td>\n<td>0.0d</td>\n<td>4.9E-324 到 1.7976931348623157E308</td>\n<td>双精度浮点数</td>\n</tr>\n<tr>\n<td>char</td>\n<td>2 字节</td>\n<td>'\\u0000'</td>\n<td>'\\u0000' 到 '\\uffff' (0 到 65,535)</td>\n<td>Unicode 字符</td>\n</tr>\n<tr>\n<td>boolean</td>\n<td>没有固定大小</td>\n<td>false</td>\n<td>true 或 false</td>\n<td>true 或 false 值</td>\n</tr>\n</tbody>\n</table>\n",
+            "tags": [
+                "计算机科学",
+                "Java",
+                "JavaSE",
+                "JavaSE",
+                "编程笔记"
+            ]
+        },
+        {
             "id": "http://www.luotao.shop/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/",
             "url": "http://www.luotao.shop/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/",
             "title": "Java发展历程",

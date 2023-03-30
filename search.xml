@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Java基本数据类型</title>
+      <link href="/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+      <url>/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="java八大基本数据类型"><a class="anchor" href="#java八大基本数据类型">#</a> Java 八大基本数据类型</h2><table><thead><tr><th>数据类型</th><th>大小</th><th>默认值</th><th>取值范围</th><th>描述</th></tr></thead><tbody><tr><td>byte</td><td>1 字节</td><td>0</td><td>-128 到 127</td><td>有符号整数</td></tr><tr><td>short</td><td>2 字节</td><td>0</td><td>-32,768 到 32,767</td><td>有符号整数</td></tr><tr><td>int</td><td>4 字节</td><td>0</td><td>-2,147,483,648 到 2,147,483,647</td><td>有符号整数</td></tr><tr><td>long</td><td>8 字节</td><td>0L</td><td>-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807</td><td>有符号整数</td></tr><tr><td>float</td><td>4 字节</td><td>0.0f</td><td>1.4E-45 到 3.4028235E38</td><td>浮点数</td></tr><tr><td>double</td><td>8 字节</td><td>0.0d</td><td>4.9E-324 到 1.7976931348623157E308</td><td>双精度浮点数</td></tr><tr><td>char</td><td>2 字节</td><td>'\u0000'</td><td>'\u0000' 到 '\uffff' (0 到 65,535)</td><td>Unicode 字符</td></tr><tr><td>boolean</td><td>没有固定大小</td><td>false</td><td>true 或 false</td><td>true 或 false 值</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机科学 </category>
+          
+          <category> Java </category>
+          
+          <category> JavaSE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaSE </tag>
+            
+            <tag> 编程笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java发展历程</title>
       <link href="/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/"/>
       <url>/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</url>
