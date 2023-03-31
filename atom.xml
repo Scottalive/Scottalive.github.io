@@ -8,9 +8,89 @@
     <author>
       <name>沉鱼</name>
     </author>
-    <updated>2023-03-30T16:00:01.000Z</updated>
+    <updated>2023-03-31T01:37:00.000Z</updated>
     <category term="博文" />
     <category term="资源分享" />
+    <entry>
+        <id>http://www.luotao.shop/computer-science/java/javase/String%E7%B1%BB/</id>
+        <title>String类</title>
+        <link rel="alternate" href="http://www.luotao.shop/computer-science/java/javase/String%E7%B1%BB/"/>
+        <content type="html">&lt;h3 id=&#34;string类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#string类&#34;&gt;#&lt;/a&gt; String 类&lt;/h3&gt;
+&lt;p&gt;​		 &lt;code&gt;String&lt;/code&gt;  是 &lt;code&gt;Java&lt;/code&gt;  中非常常用的一个类，它代表了一个字符串对象。在 &lt;code&gt;Java&lt;/code&gt;  中，字符串是不可变的，也就是说，一旦一个字符串对象被创建，它的值就不能被改变。因此，每次对字符串进行修改，都会创建一个新的字符串对象。&lt;/p&gt;
+&lt;h3 id=&#34;string类为什么是不可变的&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#string类为什么是不可变的&#34;&gt;#&lt;/a&gt; String 类为什么是不可变的？&lt;/h3&gt;
+&lt;p&gt;​		String 类的不可变特性指的是 String 实例的值一旦被创建就不能被修改。这意味着对一个 String 对象进行操作时，如果需要修改其值，实际上是创建了一个新的 String 对象，并将新对象的引用赋给原对象。这种特性有助于提高程序的性能和安全性。&lt;/p&gt;
+&lt;p&gt;​		从源码层面来看，String 类中的不可变特性是通过使用 final 关键字和 private 修饰符来实现的。String 类中的每个方法都不会修改原有的 String 对象，而是返回一个新的 String 对象，以保持原有的 String 对象的不可变性。&lt;/p&gt;
+&lt;p&gt;​		例如，String 类中的 &lt;code&gt;concat&lt;/code&gt;  方法可以将两个字符串连接起来，返回一个新的 String 对象，而不会修改原有的字符串：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str1 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str2 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;World&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str3 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;concat&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;str2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 创建新的 String 对象，值为 &#34;HelloWorld&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;​		另外，String 类还有一种常用的创建方式，即使用字符串字面值创建对象。这种方式在 Java 虚拟机中被优化，称为字符串常量池（String Pool）。当使用字符串字面值创建一个 String 对象时，Java 虚拟机会首先在字符串常量池中查找是否已存在该值的字符串对象，如果存在则返回该对象的引用，否则创建一个新的 String 对象并加入字符串常量池。例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str1 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 创建新的 String 对象并加入字符串常量池&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str2 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 直接返回字符串常量池中的引用，与 str1 引用同一个对象&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str3 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Hello&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 创建新的 String 对象，不在字符串常量池中&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;​		由于 String 的不可变特性和字符串常量池的存在，可以安全地共享字符串对象，从而提高程序的性能和安全性。&lt;/p&gt;
+&lt;h3 id=&#34;string类有很多实用的方法例如&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#string类有很多实用的方法例如&#34;&gt;#&lt;/a&gt; &lt;strong&gt;String 类有很多实用的方法，例如：&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt; ：获取字符串的长度。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt; ：获取指定索引位置的字符。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt; ：获取指定索引范围内的子字符串。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;concat(String str)&lt;/code&gt; ：将指定字符串连接到此字符串的末尾。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt; ：返回指定子字符串第一次出现的索引。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;equals(Object anObject)&lt;/code&gt; ：将此字符串与指定对象进行比较。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toUpperCase()&lt;/code&gt; ：将字符串中的所有字符转换为大写。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt; ：将字符串中的所有字符转换为小写。&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;以下是 String 类的常用方法的例子：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;  方法：获取字符串的长度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; length &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// length = 12&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;  方法：获取指定位置的字符。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; c &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;charAt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// c = &#39;e&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;  方法：获取指定位置范围内的子字符串。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; subStr &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;substring&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// subStr = &#34;Hello&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;  方法：获取指定字符串在该字符串中第一次出现的位置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; index &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;indexOf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;World&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// index = 6&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;code&gt;lastIndexOf(String str)&lt;/code&gt;  方法：获取指定字符串在该字符串中最后一次出现的位置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; index &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;lastIndexOf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;l&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// index = 9&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;code&gt;equals(Object obj)&lt;/code&gt;  方法：比较字符串是否相等。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str1 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str2 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;boolean&lt;/span&gt; isEqual &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;equals&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;str2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// isEqual = true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;&lt;code&gt;startsWith(String prefix)&lt;/code&gt;  方法：判断字符串是否以指定字符串开头。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;boolean&lt;/span&gt; startsWith &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;startsWith&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Hello&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// startsWith = true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;&lt;code&gt;endsWith(String suffix)&lt;/code&gt;  方法：判断字符串是否以指定字符串结尾。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;boolean&lt;/span&gt; endsWith &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;endsWith&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// endsWith = true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;&lt;code&gt;replace(char oldChar, char newChar)&lt;/code&gt;  方法：用指定字符替换字符串中的所有指定字符。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; newStr &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token char&#34;&gt;&#39;o&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token char&#34;&gt;&#39;*&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// newStr = &#34;Hell* W*rld!&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;  方法和 &lt;code&gt;toUpperCase()&lt;/code&gt;  方法：将字符串转换为小写或大写。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello World!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; lowerCaseStr &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;toLowerCase&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// lowerCaseStr = &#34;hello world!&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; upperCaseStr &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;toUpperCase&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// upperCaseStr = &#34;HELLO WORLD!&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;string类其他特性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#string类其他特性&#34;&gt;#&lt;/a&gt; String 类其他特性&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;String&lt;/code&gt;  类还支持字符串拼接操作。在 &lt;code&gt;Java 5&lt;/code&gt;  之前，通常使用字符串拼接操作符 &lt;code&gt;+&lt;/code&gt;  来实现字符串拼接，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Hello&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34; &#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;world!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;​		在 &lt;code&gt;Java 5&lt;/code&gt;  及之后的版本中，还引入了 &lt;code&gt;StringBuilder&lt;/code&gt;  和 &lt;code&gt;StringBuffer&lt;/code&gt;  两个类来优化字符串拼接操作。这两个类可以动态地添加、修改和删除字符串中的字符，并且能够避免频繁创建新的字符串对象。例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;StringBuilder&lt;/span&gt; sb &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;StringBuilder&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sb&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Hello&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sb&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34; &#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sb&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;world!&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; sb&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;toString&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;​		当需要在多线程环境下使用字符串拼接操作时，应该使用 &lt;code&gt;StringBuffer&lt;/code&gt;  类。如果在单线程环境下使用字符串拼接操作，或者需要更高的性能，应该使用 &lt;code&gt;StringBuilder&lt;/code&gt;  类。&lt;/p&gt;
+&lt;p&gt;​		总之， &lt;code&gt;String&lt;/code&gt;  类是 &lt;code&gt;Java&lt;/code&gt;  中非常常用的一个类，它不仅支持字符串的基本操作，还提供了丰富的字符串处理方法，对于 &lt;code&gt;Java&lt;/code&gt;  程序开发来说是一个必不可少的类。&lt;/p&gt;
+</content>
+        <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
+        <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
+        <category term="JavaSE" scheme="http://www.luotao.shop/categories/computer-science/java/javase/" />
+        <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
+        <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+        <updated>2023-03-31T01:37:00.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://www.luotao.shop/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</id>
+        <title>日期类</title>
+        <link rel="alternate" href="http://www.luotao.shop/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/"/>
+        <content type="html"></content>
+        <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
+        <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
+        <category term="JavaSE" scheme="http://www.luotao.shop/categories/computer-science/java/javase/" />
+        <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
+        <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+        <updated>2023-03-31T01:37:00.000Z</updated>
+    </entry>
     <entry>
         <id>http://www.luotao.shop/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
         <title>Java基本数据类型</title>
@@ -366,101 +446,108 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;JDK Version 1.1&lt;br /&gt;
- 于 1997-02-19 发行。&lt;br /&gt;
-引入的新特性包括：&lt;br /&gt;
-引入 JDBC（Java Database Connectivity）；&lt;br /&gt;
-支持内部类；&lt;br /&gt;
-引入 Java Bean；&lt;br /&gt;
-引入 RMI（Remote Method Invocation）；&lt;br /&gt;
-引入反射（仅用于内省）。&lt;/p&gt;
 &lt;h3 id=&#34;j2se-version-12&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#j2se-version-12&#34;&gt;#&lt;/a&gt; J2SE Version 1.2&lt;/h3&gt;
 &lt;p&gt;开发代号为 Playground（操场），于 1998-12-08 发行。&lt;br /&gt;
-引入的新特性包括：&lt;br /&gt;
-引入集合（Collection）框架；&lt;br /&gt;
-对字符串常量做内存映射；&lt;br /&gt;
-引入 JIT（Just In Time）编译器；&lt;br /&gt;
-引入对打包的 Java 文件进行数字签名；&lt;br /&gt;
-引入控制授权访问系统资源的策略工具；&lt;br /&gt;
-引入 JFC（Java Foundation Classes），包括 Swing 1.0、拖放和 Java 2D 类库；&lt;br /&gt;
-引入 Java 插件；&lt;br /&gt;
-在 JDBC 中引入可滚动结果集、BLOB、CLOB、批量更新和用户自定义类型；&lt;br /&gt;
-在 Applet 中添加声音支持。&lt;/p&gt;
+引入的新特性包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;引入集合（Collection）框架；&lt;/li&gt;
+&lt;li&gt;对字符串常量做内存映射；&lt;/li&gt;
+&lt;li&gt;引入 JIT（Just In Time）编译器；&lt;/li&gt;
+&lt;li&gt;引入对打包的 Java 文件进行数字签名；&lt;/li&gt;
+&lt;li&gt;引入控制授权访问系统资源的策略工具；&lt;/li&gt;
+&lt;li&gt;引入 JFC（Java Foundation Classes），包括 Swing 1.0、拖放和 Java 2D 类库；&lt;/li&gt;
+&lt;li&gt;引入 Java 插件；&lt;/li&gt;
+&lt;li&gt;在 JDBC 中引入可滚动结果集、BLOB、CLOB、批量更新和用户自定义类型；&lt;/li&gt;
+&lt;li&gt;在 Applet 中添加声音支持。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;j2se-version-13&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#j2se-version-13&#34;&gt;#&lt;/a&gt; J2SE Version 1.3&lt;/h3&gt;
 &lt;p&gt;开发代号为 Kestrel（红隼），于 2000-05-08 发行。&lt;br /&gt;
-引入的新特性包括：&lt;br /&gt;
-引入 Java Sound API；&lt;br /&gt;
-jar 文件索引；&lt;br /&gt;
-对 Java 的各个方面都做了大量优化和增强。&lt;/p&gt;
+引入的新特性包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;引入 Java Sound API；&lt;/li&gt;
+&lt;li&gt;jar 文件索引；&lt;/li&gt;
+&lt;li&gt;对 Java 的各个方面都做了大量优化和增强。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;j2se-version-14&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#j2se-version-14&#34;&gt;#&lt;/a&gt; J2SE Version 1.4&lt;/h3&gt;
 &lt;p&gt;开发代号为 Merlin（隼），于 2004-02-06 发行（首次在 JCP 下发行）。&lt;br /&gt;
-引入的新特性包括:&lt;br /&gt;
-XML 处理；&lt;br /&gt;
-Java 打印服务；&lt;br /&gt;
-引入 Logging API；&lt;br /&gt;
-引入 Java Web Start；&lt;br /&gt;
-引入 JDBC 3.0 API；&lt;br /&gt;
-引入断言；&lt;br /&gt;
-引入 Preferences API；&lt;br /&gt;
-引入链式异常处理；&lt;br /&gt;
-支持 IPv6；&lt;br /&gt;
-支持正则表达式；&lt;br /&gt;
-引入 Image I/O slot machine API。&lt;/p&gt;
+引入的新特性包括:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;XML 处理；&lt;/li&gt;
+&lt;li&gt;Java 打印服务；&lt;/li&gt;
+&lt;li&gt;引入 Logging API；&lt;br /&gt;
+引入 Java Web Start；&lt;/li&gt;
+&lt;li&gt;引入 JDBC 3.0 API；&lt;/li&gt;
+&lt;li&gt;引入断言；&lt;/li&gt;
+&lt;li&gt;引入 Preferences API；&lt;/li&gt;
+&lt;li&gt;引入链式异常处理；&lt;/li&gt;
+&lt;li&gt;支持 IPv6；&lt;/li&gt;
+&lt;li&gt;支持正则表达式；&lt;/li&gt;
+&lt;li&gt;引入 Image I/O slot machine API。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;java-version-se-50&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-50&#34;&gt;#&lt;/a&gt; Java Version SE 5.0&lt;/h3&gt;
 &lt;p&gt;开发代号为 Tiger（老虎），于 2004-09-30 发行。&lt;br /&gt;
-引入的新特性包括:&lt;br /&gt;
- 引入泛型；&lt;br /&gt;
-增强循环，可以使用迭代方式；&lt;br /&gt;
-自动装箱与自动拆箱；&lt;br /&gt;
-类型安全的枚举；&lt;br /&gt;
-可变参数；&lt;br /&gt;
-静态引入；&lt;br /&gt;
-元数据（注解）；&lt;br /&gt;
-引入 Instrumentation。&lt;/p&gt;
+引入的新特性包括:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;引入泛型；&lt;/li&gt;
+&lt;li&gt;增强循环，可以使用迭代方式；&lt;/li&gt;
+&lt;li&gt;自动装箱与自动拆箱；&lt;/li&gt;
+&lt;li&gt;类型安全的枚举；&lt;/li&gt;
+&lt;li&gt;可变参数；&lt;/li&gt;
+&lt;li&gt;静态引入；&lt;/li&gt;
+&lt;li&gt;元数据（注解）；&lt;/li&gt;
+&lt;li&gt;引入 Instrumentation。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;java-version-se-6&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-6&#34;&gt;#&lt;/a&gt; Java Version SE 6&lt;/h3&gt;
 &lt;p&gt;开发代号为 Mustang（野马），于 2006-12-11 发行。&lt;br /&gt;
-引入的新特性包括：&lt;br /&gt;
-支持脚本语言；&lt;br /&gt;
-引入 JDBC 4.0 API；&lt;br /&gt;
-引入 Java Compiler API；&lt;br /&gt;
-可插拔注解；&lt;br /&gt;
-增加对 Native PKI (Public Key Infrastructure)、Java GSS (Generic Security Service)、Kerberos 和 LDAP (Lightweight Directory Access Protocol) 的支持；&lt;br /&gt;
-继承 Web Services；&lt;br /&gt;
-做了很多优化。&lt;/p&gt;
+引入的新特性包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;支持脚本语言；&lt;/li&gt;
+&lt;li&gt;引入 JDBC 4.0 API；&lt;/li&gt;
+&lt;li&gt;引入 Java Compiler API；&lt;/li&gt;
+&lt;li&gt;可插拔注解；&lt;/li&gt;
+&lt;li&gt;增加对 Native PKI (Public Key Infrastructure)、Java GSS (Generic Security Service)、Kerberos 和 LDAP (Lightweight Directory Access Protocol) 的支持；&lt;/li&gt;
+&lt;li&gt;继承 Web Services；做了很多优化。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;java-version-se-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-7&#34;&gt;#&lt;/a&gt; Java Version SE 7&lt;/h3&gt;
 &lt;p&gt;开发代号是 Dolphin（海豚），于 2011-07-28 发行。&lt;br /&gt;
-引入的新特性包括：&lt;br /&gt;
-switch 语句块中允许以字符串作为分支条件；&lt;br /&gt;
-在创建泛型对象时应用类型推断；&lt;br /&gt;
-在一个语句块中捕获多种异常；&lt;br /&gt;
-支持动态语言；&lt;br /&gt;
-支持 try-with-resources；&lt;br /&gt;
-引入 Java NIO.2 开发包；&lt;br /&gt;
-数值类型可以用 2 进制字符串表示，并且可以在字符串表示中添加下划线；&lt;br /&gt;
-钻石型语法；&lt;br /&gt;
-null 值的自动处理。&lt;/p&gt;
+引入的新特性包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;switch 语句块中允许以字符串作为分支条件；&lt;/li&gt;
+&lt;li&gt;在创建泛型对象时应用类型推断；&lt;/li&gt;
+&lt;li&gt;在一个语句块中捕获多种异常；&lt;/li&gt;
+&lt;li&gt;支持动态语言；&lt;/li&gt;
+&lt;li&gt;支持 try-with-resources；&lt;/li&gt;
+&lt;li&gt;引入 Java NIO.2 开发包；&lt;/li&gt;
+&lt;li&gt;数值类型可以用 2 进制字符串表示，并且可以在字符串表示中添加下划线；&lt;/li&gt;
+&lt;li&gt;钻石型语法；&lt;/li&gt;
+&lt;li&gt;null 值的自动处理。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;java-version-se-8&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-8&#34;&gt;#&lt;/a&gt; Java Version SE 8&lt;/h3&gt;
-&lt;p&gt;开发代号是 Spider（蜘蛛），于 2014-03-18 发行。&lt;br /&gt;
-支持 lambda 支持；&lt;br /&gt;
-增强日期与时间 API 的功能；&lt;br /&gt;
-对垃圾回收的性能也进行了改进；&lt;br /&gt;
-并且移除了 permgen 区。&lt;br /&gt;
-Lambdas 表达式与 Functional 接口&lt;br /&gt;
-接口的默认与静态方法&lt;br /&gt;
-方法引用&lt;br /&gt;
-重复注解&lt;br /&gt;
-更好的类型推测机制&lt;br /&gt;
-扩展注解的支持&lt;/p&gt;
+&lt;p&gt;开发代号是 Spider（蜘蛛），于 2014-03-18 发行。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;支持 lambda 支持；&lt;/li&gt;
+&lt;li&gt;增强日期与时间 API 的功能；&lt;/li&gt;
+&lt;li&gt;对垃圾回收的性能也进行了改进；&lt;/li&gt;
+&lt;li&gt;并且移除了 permgen 区。&lt;/li&gt;
+&lt;li&gt;Lambdas 表达式与 Functional 接口。&lt;/li&gt;
+&lt;li&gt;接口的默认与静态方法。&lt;/li&gt;
+&lt;li&gt;方法引用。&lt;/li&gt;
+&lt;li&gt;重复注解。&lt;/li&gt;
+&lt;li&gt;更好的类型推测机制。&lt;/li&gt;
+&lt;li&gt;扩展注解的支持。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;java-version-se-90&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-90&#34;&gt;#&lt;/a&gt; Java Version SE 9.0&lt;/h3&gt;
-&lt;p&gt;Java 平台级模块系统&lt;br /&gt;
- Linking&lt;br /&gt;
-JShell : 交互式 Java REPL&lt;br /&gt;
- 改进的 Javadoc&lt;br /&gt;
- 集合工厂方法&lt;br /&gt;
-改进的 Stream API&lt;br /&gt;
- 私有接口方法&lt;br /&gt;
- HTTP/2&lt;br /&gt;
- 多版本兼容 JAR&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Java 平台级模块系统。&lt;/li&gt;
+&lt;li&gt;Linking。&lt;/li&gt;
+&lt;li&gt;JShell : 交互式 Java REPL。&lt;/li&gt;
+&lt;li&gt;改进的 Javadoc。&lt;/li&gt;
+&lt;li&gt;集合工厂方法。&lt;/li&gt;
+&lt;li&gt;改进的 Stream API。&lt;/li&gt;
+&lt;li&gt;私有接口方法。&lt;/li&gt;
+&lt;li&gt;HTTP/2。&lt;/li&gt;
+&lt;li&gt;多版本兼容 JAR。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;java-version-se-100&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-100&#34;&gt;#&lt;/a&gt; Java Version SE 10.0&lt;/h3&gt;
 &lt;p&gt;​		本地变量类型推断，可以使用本地变量的初始化去推荐对应变量的类型。提升了并行垃圾收集器 G1 的性能，降低了收集延时。应用优化了启动时刻的数据共享，已经存在的类更好的共享。一个试用的即时编译器 Grral，只支持 linux x64 平台能够感知到 docker 的存在，如果运行在 linux 平台，可以感知到是否运行在 docker 容器中，可以查询到操作系统给容器分配的 cpu 和内存等等物理资源信息.&lt;br /&gt;
  修复从主机 Java 线程连接到容器内 Java 线程的一个问题。更短的 jShell REPL tool 启动时间。提供了新接口，可以获取可变化的集合类，copyOf,Set.copyOf, 和 Map.copyOf 等方法创建一个新的集合对象，toUnmodifiableList, toUnmodifiableSet, 和 toUnmodifiableMap 获取不可修改对象，让 Stream 操作可以获取到不可变对象。&lt;br /&gt;
