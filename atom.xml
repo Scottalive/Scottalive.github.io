@@ -85,7 +85,6 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;好的，以下是以 md 语法格式展示 Java 基本数据类型对应的包装类、常用方法以及包装类的特别设计：&lt;/p&gt;
 &lt;h3 id=&#34;java基本数据类型对应的包装类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java基本数据类型对应的包装类&#34;&gt;#&lt;/a&gt; Java 基本数据类型对应的包装类&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
