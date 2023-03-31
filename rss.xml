@@ -188,7 +188,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;当 Java 自动装箱时，会重用对象，将一些常见的包装类对象缓存起来以提高性能和降低内存占用。下面是几个常用的包装类缓存示例：&lt;/p&gt;
+&lt;p&gt;​		当 Java 自动装箱时，会重用对象，将一些常见的包装类对象缓存起来以提高性能和降低内存占用。下面是几个常用的包装类缓存示例：&lt;/p&gt;
 &lt;h3 id=&#34;包装类缓存示例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#包装类缓存示例&#34;&gt;#&lt;/a&gt; 包装类缓存示例&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Integer 类的缓存示例：&lt;/strong&gt;&lt;/li&gt;
