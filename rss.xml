@@ -92,7 +92,46 @@
             <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
             <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
             <pubDate>Fri, 31 Mar 2023 09:37:00 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
+            <description><![CDATA[ &lt;h3 id=&#34;java日期类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java日期类&#34;&gt;#&lt;/a&gt; Java 日期类&lt;/h3&gt;
+&lt;p&gt;​		 &lt;code&gt;Java&lt;/code&gt;  日期类主要包括 &lt;code&gt;java.util.Date&lt;/code&gt; 、 &lt;code&gt;java.util.Calendar&lt;/code&gt;  和 &lt;code&gt;java.time&lt;/code&gt;  包下的类。&lt;/p&gt;
+&lt;p&gt;​		 &lt;code&gt;java.util.Date&lt;/code&gt;  类是 &lt;code&gt;Java&lt;/code&gt;  提供的最早的日期类，它表示自 1970 年 1 月 1 日 0 时 0 分 0 秒 (GMT) 起的毫秒数。但是它的设计存在缺陷，所以在 &lt;code&gt;Java 8&lt;/code&gt;  之后，推荐使用 java.time 包下的日期类。&lt;/p&gt;
+&lt;p&gt;​		 &lt;code&gt;java.util.Calendar&lt;/code&gt;  类是一个抽象类，提供了一些基本的日期操作，比如获取某一时间的年、月、日、时、分、秒等。但是该类使用起来比较繁琐。&lt;/p&gt;
+&lt;p&gt;​		 &lt;code&gt;Java 8&lt;/code&gt;  之后推出了全新的日期时间 &lt;code&gt;API&lt;/code&gt; ， &lt;code&gt;java.time&lt;/code&gt;  包下的类，包括 &lt;code&gt;LocalDate&lt;/code&gt; 、 &lt;code&gt;LocalTime&lt;/code&gt; 、 &lt;code&gt;LocalDateTime&lt;/code&gt; 、 &lt;code&gt;ZonedDateTime&lt;/code&gt;  等，这些类提供了更简单易用的方法和更好的可读性，能够更方便地进行日期和时间的计算和格式化。&lt;/p&gt;
+&lt;p&gt;下面是一些常用的 Java 日期类的方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;java.util.Date&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Date()&lt;/code&gt; ：创建一个表示当前时间的 Date 对象。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getTime()&lt;/code&gt; ：返回自 1970 年 1 月 1 日 0 时 0 分 0 秒 (GMT) 起的毫秒数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toString()&lt;/code&gt; ：返回一个 String 类型的表示形式，格式为 &lt;code&gt;EEE MMM dd HH:mm:ss zzz yyyy&lt;/code&gt; 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;java.util.Calendar&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getInstance()&lt;/code&gt; ：返回一个 Calendar 对象，表示当前时间。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get(int field)&lt;/code&gt; ：获取指定的日期字段值，如 &lt;code&gt;Calendar.YEAR&lt;/code&gt; 、 &lt;code&gt;Calendar.MONTH&lt;/code&gt; 、 &lt;code&gt;Calendar.DAY_OF_MONTH&lt;/code&gt;  等。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;set(int field, int value)&lt;/code&gt; ：设置指定的日期字段值。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getTime()&lt;/code&gt; ：返回一个 Date 对象，表示当前时间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;java.time&lt;/code&gt;  包下的类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;now()&lt;/code&gt; ：获取当前日期时间。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;of()&lt;/code&gt; ：根据指定的日期时间创建对象。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getYear()&lt;/code&gt; ：获取年份。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getMonth()&lt;/code&gt; ：获取月份。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getDayOfMonth()&lt;/code&gt; ：获取月中的日期。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getHour()&lt;/code&gt; ：获取小时数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getMinute()&lt;/code&gt; ：获取分钟数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getSecond()&lt;/code&gt; ：获取秒数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;plus()&lt;/code&gt; ：对日期进行加法操作。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;minus()&lt;/code&gt; ：对日期进行减法操作。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;format()&lt;/code&gt; ：格式化日期时间。&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
         </item>
         <item>
             <guid isPermalink="true">http://www.luotao.shop/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
