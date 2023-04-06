@@ -10,10 +10,23 @@
         </author>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 06 Apr 2023 17:51:49 +0800</pubDate>
-        <lastBuildDate>Thu, 06 Apr 2023 17:51:49 +0800</lastBuildDate>
+        <pubDate>Thu, 06 Apr 2023 21:58:00 +0800</pubDate>
+        <lastBuildDate>Thu, 06 Apr 2023 21:58:00 +0800</lastBuildDate>
         <category term="博文" />
         <category term="资源分享" />
+        <item>
+            <guid isPermalink="true">http://www.luotao.shop/psychology/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/%E5%BA%8F%E8%A8%80/</guid>
+            <title>序言</title>
+            <link>http://www.luotao.shop/psychology/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/%E5%BA%8F%E8%A8%80/</link>
+            <category term="心理学" scheme="http://www.luotao.shop/categories/psychology/" />
+            <category term="自卑与超越" scheme="http://www.luotao.shop/categories/psychology/Inferiority-and-transcendence/" />
+            <category term="心理学知识" scheme="http://www.luotao.shop/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E7%9F%A5%E8%AF%86/" />
+            <category term="阿德勒心理学" scheme="http://www.luotao.shop/tags/%E9%98%BF%E5%BE%B7%E5%8B%92%E5%BF%83%E7%90%86%E5%AD%A6/" />
+            <category term="自卑与超越" scheme="http://www.luotao.shop/tags/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/" />
+            <pubDate>Thu, 06 Apr 2023 21:58:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;自卑与超越&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自卑与超越&#34;&gt;#&lt;/a&gt; 自卑与超越&lt;/h2&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://www.luotao.shop/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/</guid>
             <title>语言元素</title>

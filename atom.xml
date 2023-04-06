@@ -8,9 +8,22 @@
     <author>
       <name>沉鱼</name>
     </author>
-    <updated>2023-04-06T09:51:49.000Z</updated>
+    <updated>2023-04-06T13:58:00.000Z</updated>
     <category term="博文" />
     <category term="资源分享" />
+    <entry>
+        <id>http://www.luotao.shop/psychology/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/%E5%BA%8F%E8%A8%80/</id>
+        <title>序言</title>
+        <link rel="alternate" href="http://www.luotao.shop/psychology/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/%E5%BA%8F%E8%A8%80/"/>
+        <content type="html">&lt;h2 id=&#34;自卑与超越&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自卑与超越&#34;&gt;#&lt;/a&gt; 自卑与超越&lt;/h2&gt;
+</content>
+        <category term="心理学" scheme="http://www.luotao.shop/categories/psychology/" />
+        <category term="自卑与超越" scheme="http://www.luotao.shop/categories/psychology/Inferiority-and-transcendence/" />
+        <category term="心理学知识" scheme="http://www.luotao.shop/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E7%9F%A5%E8%AF%86/" />
+        <category term="阿德勒心理学" scheme="http://www.luotao.shop/tags/%E9%98%BF%E5%BE%B7%E5%8B%92%E5%BF%83%E7%90%86%E5%AD%A6/" />
+        <category term="自卑与超越" scheme="http://www.luotao.shop/tags/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/" />
+        <updated>2023-04-06T13:58:00.000Z</updated>
+    </entry>
     <entry>
         <id>http://www.luotao.shop/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/</id>
         <title>语言元素</title>
