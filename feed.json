@@ -7,6 +7,18 @@
     "home_page_url": "http://www.luotao.shop",
     "items": [
         {
+            "id": "http://www.luotao.shop/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/%E6%93%8D%E7%BA%B5%E6%80%A7%E7%90%86%E5%AD%A6/",
+            "url": "http://www.luotao.shop/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/%E6%93%8D%E7%BA%B5%E6%80%A7%E7%90%86%E5%AD%A6/",
+            "title": "操纵性理学",
+            "date_published": "2023-07-06T14:17:00.000Z",
+            "content_html": "<h2 id=\"操纵心理学\"><a class=\"anchor\" href=\"#操纵心理学\">#</a> 操纵心理学</h2>\n<p><strong>不要相信” 都是为你好 “，拒绝做软柿子</strong></p>\n<p><strong>修炼你的心，懂得爱人，也要懂得爱自己</strong></p>\n<p><strong>你的人生应该永远由你来选择</strong></p>\n<h3 id=\"\"><a class=\"anchor\" href=\"#\">#</a> </h3>\n<script type=\"text&#x2F;javascript\" src=\"https://unpkg.com/kity@2.0.4/dist/kity.min.js\"></script><script type=\"text&#x2F;javascript\" src=\"https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js\"></script><script defer=\"true\" type=\"text&#x2F;javascript\" src=\"https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js\"></script><link rel=\"stylesheet\" type=\"text&#x2F;css\" href=\"https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css\">",
+            "tags": [
+                "心理学",
+                "操纵心理学",
+                "心理学知识"
+            ]
+        },
+        {
             "id": "http://www.luotao.shop/introduction/%E5%8E%9F%E5%88%99/",
             "url": "http://www.luotao.shop/introduction/%E5%8E%9F%E5%88%99/",
             "title": "原则",
