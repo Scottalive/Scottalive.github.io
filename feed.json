@@ -11,7 +11,7 @@
             "url": "http://www.luotao.shop/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/",
             "title": "Ribbon负载均衡",
             "date_published": "2023-08-30T02:17:00.000Z",
-            "content_html": "<script type=\"text&#x2F;javascript\" src=\"https://unpkg.com/kity@2.0.4/dist/kity.min.js\"></script><script type=\"text&#x2F;javascript\" src=\"https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js\"></script><script defer=\"true\" type=\"text&#x2F;javascript\" src=\"https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js\"></script><link rel=\"stylesheet\" type=\"text&#x2F;css\" href=\"https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css\">",
+            "content_html": "<h2 id=\"ribbon负载均衡\"><a class=\"anchor\" href=\"#ribbon负载均衡\">#</a> Ribbon 负载均衡</h2>\n<h3 id=\"负载均衡原理\"><a class=\"anchor\" href=\"#负载均衡原理\">#</a> 负载均衡原理</h3>\n<h3 id=\"负载均衡策略\"><a class=\"anchor\" href=\"#负载均衡策略\">#</a> 负载均衡策略</h3>\n<h3 id=\"懒加载\"><a class=\"anchor\" href=\"#懒加载\">#</a> 懒加载</h3>\n<script type=\"text&#x2F;javascript\" src=\"https://unpkg.com/kity@2.0.4/dist/kity.min.js\"></script><script type=\"text&#x2F;javascript\" src=\"https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js\"></script><script defer=\"true\" type=\"text&#x2F;javascript\" src=\"https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js\"></script><link rel=\"stylesheet\" type=\"text&#x2F;css\" href=\"https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css\">",
             "tags": [
                 "计算机科学",
                 "Java",

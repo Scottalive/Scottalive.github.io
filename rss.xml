@@ -24,7 +24,11 @@
             <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
             <category term="微服务" scheme="http://www.luotao.shop/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
             <pubDate>Wed, 30 Aug 2023 10:17:00 +0800</pubDate>
-            <description><![CDATA[ &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
+            <description><![CDATA[ &lt;h2 id=&#34;ribbon负载均衡&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ribbon负载均衡&#34;&gt;#&lt;/a&gt; Ribbon 负载均衡&lt;/h2&gt;
+&lt;h3 id=&#34;负载均衡原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#负载均衡原理&#34;&gt;#&lt;/a&gt; 负载均衡原理&lt;/h3&gt;
+&lt;h3 id=&#34;负载均衡策略&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#负载均衡策略&#34;&gt;#&lt;/a&gt; 负载均衡策略&lt;/h3&gt;
+&lt;h3 id=&#34;懒加载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#懒加载&#34;&gt;#&lt;/a&gt; 懒加载&lt;/h3&gt;
+&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">http://www.luotao.shop/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</guid>
