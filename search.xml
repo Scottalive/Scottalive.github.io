@@ -4,7 +4,38 @@
   
     
     <entry>
-      <title>认识微服务</title>
+      <title>Ribbon负载均衡</title>
+      <link href="/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+      <url>/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
+      
+        <content type="html"><![CDATA[<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机科学 </category>
+          
+          <category> Java </category>
+          
+          <category> 微服务 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程笔记 </tag>
+            
+            <tag> 微服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Eureka注册中心</title>
       <link href="/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/"/>
       <url>/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</url>
       
