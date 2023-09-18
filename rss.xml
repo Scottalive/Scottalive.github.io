@@ -3,8 +3,8 @@
     <channel>
         <title>沉鱼的博客</title>
         <subtitle>了解自我，超越自我</subtitle>
-        <icon>http://www.luotao.shop/images/favicon.ico</icon>
-        <link>http://www.luotao.shop</link>
+        <icon>http://scottalive.github.io/images/favicon.ico</icon>
+        <link>http://scottalive.github.io</link>
         <author>
           <name>沉鱼</name>
         </author>
@@ -15,13 +15,13 @@
         <category term="博文" />
         <category term="资源分享" />
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/arithmetic/3-%E5%8A%9B%E6%89%A3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/arithmetic/3-%E5%8A%9B%E6%89%A3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89/</guid>
             <title>力扣算法题-3-无重复字符的最长子串</title>
-            <link>http://www.luotao.shop/computer-science/java/arithmetic/3-%E5%8A%9B%E6%89%A3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="算法" scheme="http://www.luotao.shop/categories/computer-science/java/arithmetic/" />
-            <category term="力扣算法题" scheme="http://www.luotao.shop/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/" />
+            <link>http://scottalive.github.io/computer-science/java/arithmetic/3-%E5%8A%9B%E6%89%A3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="算法" scheme="http://scottalive.github.io/categories/computer-science/java/arithmetic/" />
+            <category term="力扣算法题" scheme="http://scottalive.github.io/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/" />
             <pubDate>Tue, 19 Sep 2023 05:54:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;无重复字符的最长子串&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#无重复字符的最长子串&#34;&gt;#&lt;/a&gt; 无重复字符的最长子串&lt;/h2&gt;
 &lt;p&gt;给定一个字符串  &lt;code&gt;s&lt;/code&gt;  ，请你找出其中不含有重复字符的 &lt;strong&gt;最长子串&lt;/strong&gt; 的长度。&lt;/p&gt;
@@ -59,13 +59,13 @@
 &lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Solution&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;lengthOfLongestSubstring&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; s&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;Map&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Character&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; map &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HashMap&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; max &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; left &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; i&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;i&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;s&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;i&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;containsKey&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;s&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;charAt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                left &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Math&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;left&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;s&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;charAt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;s&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;charAt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            max &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Math&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;max&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;i&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;left&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/arithmetic/2-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E4%B8%AD%E7%AD%89/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/arithmetic/2-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E4%B8%AD%E7%AD%89/</guid>
             <title>力扣算法题-2-两数相加</title>
-            <link>http://www.luotao.shop/computer-science/java/arithmetic/2-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E4%B8%AD%E7%AD%89/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="算法" scheme="http://www.luotao.shop/categories/computer-science/java/arithmetic/" />
-            <category term="力扣算法题" scheme="http://www.luotao.shop/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/" />
+            <link>http://scottalive.github.io/computer-science/java/arithmetic/2-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E4%B8%AD%E7%AD%89/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="算法" scheme="http://scottalive.github.io/categories/computer-science/java/arithmetic/" />
+            <category term="力扣算法题" scheme="http://scottalive.github.io/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/" />
             <pubDate>Tue, 19 Sep 2023 05:43:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;力扣算法题-2-两数相加&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#力扣算法题-2-两数相加&#34;&gt;#&lt;/a&gt; 力扣算法题 - 2 - 两数相加&lt;/h2&gt;
 &lt;p&gt;给你两个 &lt;strong&gt;非空&lt;/strong&gt; 的链表，表示两个非负的整数。它们每位数字都是按照 &lt;strong&gt;逆序&lt;/strong&gt; 的方式存储的，并且每个节点只能存储 &lt;strong&gt;一位&lt;/strong&gt; 数字。&lt;/p&gt;
@@ -104,13 +104,13 @@
 &lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/**&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; * Definition for singly-linked list.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; * public class ListNode &amp;#123;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; *     int val;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; *     ListNode next;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; *     ListNode(int x) &amp;#123; val = x; &amp;#125;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; * &amp;#125;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Solution&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;addTwoNumbers&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; l1&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; l2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; pre &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; cur &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; pre&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; carry &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;l1 &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;||&lt;/span&gt; l2 &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; x &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; l1 &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; l1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;val&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; y &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; l2 &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; l2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;val&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; sum &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; x &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; y &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; carry&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            carry &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; sum &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            sum &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; sum &lt;span class=&#34;token operator&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            cur&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;sum&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            cur &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; cur&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;l1 &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                l1 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; l1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;l2 &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                l2 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; l2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;carry &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            cur&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;carry&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; pre&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/arithmetic/1-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-%E7%AE%80%E5%8D%95/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/arithmetic/1-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-%E7%AE%80%E5%8D%95/</guid>
             <title>力扣算法题-1-两数之和</title>
-            <link>http://www.luotao.shop/computer-science/java/arithmetic/1-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-%E7%AE%80%E5%8D%95/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="算法" scheme="http://www.luotao.shop/categories/computer-science/java/arithmetic/" />
-            <category term="力扣算法题" scheme="http://www.luotao.shop/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/" />
+            <link>http://scottalive.github.io/computer-science/java/arithmetic/1-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-%E7%AE%80%E5%8D%95/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="算法" scheme="http://scottalive.github.io/categories/computer-science/java/arithmetic/" />
+            <category term="力扣算法题" scheme="http://scottalive.github.io/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/" />
             <pubDate>Tue, 19 Sep 2023 05:22:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;两数之和&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#两数之和&#34;&gt;#&lt;/a&gt; 两数之和&lt;/h2&gt;
 &lt;h3 id=&#34;两数之和-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#两数之和-2&#34;&gt;#&lt;/a&gt; 两数之和&lt;/h3&gt;
@@ -159,12 +159,12 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/introduction/%E5%9D%8F%E4%B9%A0%E6%83%AF/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/introduction/%E5%9D%8F%E4%B9%A0%E6%83%AF/</guid>
             <title>坏习惯</title>
-            <link>http://www.luotao.shop/introduction/%E5%9D%8F%E4%B9%A0%E6%83%AF/</link>
-            <category term="生活习惯" scheme="http://www.luotao.shop/categories/life/" />
-            <category term="个人分享" scheme="http://www.luotao.shop/tags/%E4%B8%AA%E4%BA%BA%E5%88%86%E4%BA%AB/" />
-            <category term="坏习惯" scheme="http://www.luotao.shop/tags/%E5%9D%8F%E4%B9%A0%E6%83%AF/" />
+            <link>http://scottalive.github.io/introduction/%E5%9D%8F%E4%B9%A0%E6%83%AF/</link>
+            <category term="生活习惯" scheme="http://scottalive.github.io/categories/life/" />
+            <category term="个人分享" scheme="http://scottalive.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%88%86%E4%BA%AB/" />
+            <category term="坏习惯" scheme="http://scottalive.github.io/tags/%E5%9D%8F%E4%B9%A0%E6%83%AF/" />
             <pubDate>Sun, 17 Sep 2023 19:36:00 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;九种弱者习惯&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#九种弱者习惯&#34;&gt;#&lt;/a&gt; 九种弱者习惯&lt;/h3&gt;
 &lt;p&gt;一、九种弱者习惯，包括爱找借口、缺乏胆识、犹豫不决等，提醒读者要养成优秀的习惯，不断成长进步。&lt;/p&gt;
@@ -195,28 +195,28 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/springcloud/%E5%88%9D%E8%AF%86Nacos/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/springcloud/%E5%88%9D%E8%AF%86Nacos/</guid>
             <title>初识Nacos</title>
-            <link>http://www.luotao.shop/computer-science/java/springcloud/%E5%88%9D%E8%AF%86Nacos/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="微服务" scheme="http://www.luotao.shop/categories/computer-science/java/springcloud/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <category term="微服务" scheme="http://www.luotao.shop/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
+            <link>http://scottalive.github.io/computer-science/java/springcloud/%E5%88%9D%E8%AF%86Nacos/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="微服务" scheme="http://scottalive.github.io/categories/computer-science/java/springcloud/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <category term="微服务" scheme="http://scottalive.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
             <pubDate>Fri, 01 Sep 2023 09:17:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;初识nacos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#初识nacos&#34;&gt;#&lt;/a&gt; 初识 Nacos&lt;/h2&gt;
 &lt;h3 id=&#34;nacos安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nacos安装&#34;&gt;#&lt;/a&gt; Nacos 安装&lt;/h3&gt;
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/javase/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/javase/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
             <title>排序算法</title>
-            <link>http://www.luotao.shop/computer-science/java/javase/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/categories/computer-science/java/javase/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <link>http://scottalive.github.io/computer-science/java/javase/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="JavaSE" scheme="http://scottalive.github.io/categories/computer-science/java/javase/" />
+            <category term="JavaSE" scheme="http://scottalive.github.io/tags/JavaSE/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
             <pubDate>Wed, 30 Aug 2023 11:07:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;排序算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#排序算法&#34;&gt;#&lt;/a&gt; 排序算法&lt;/h2&gt;
 &lt;h3 id=&#34;冒泡排序法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#冒泡排序法&#34;&gt;#&lt;/a&gt; 冒泡排序法&lt;/h3&gt;
@@ -224,14 +224,14 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</guid>
             <title>Ribbon负载均衡</title>
-            <link>http://www.luotao.shop/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="微服务" scheme="http://www.luotao.shop/categories/computer-science/java/springcloud/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <category term="微服务" scheme="http://www.luotao.shop/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
+            <link>http://scottalive.github.io/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="微服务" scheme="http://scottalive.github.io/categories/computer-science/java/springcloud/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <category term="微服务" scheme="http://scottalive.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
             <pubDate>Wed, 30 Aug 2023 10:17:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;ribbon负载均衡&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ribbon负载均衡&#34;&gt;#&lt;/a&gt; Ribbon 负载均衡&lt;/h2&gt;
 &lt;h3 id=&#34;负载均衡原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#负载均衡原理&#34;&gt;#&lt;/a&gt; 负载均衡原理&lt;/h3&gt;
@@ -246,14 +246,14 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</guid>
             <title>Eureka注册中心</title>
-            <link>http://www.luotao.shop/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="微服务" scheme="http://www.luotao.shop/categories/computer-science/java/springcloud/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <category term="微服务" scheme="http://www.luotao.shop/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
+            <link>http://scottalive.github.io/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="微服务" scheme="http://scottalive.github.io/categories/computer-science/java/springcloud/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <category term="微服务" scheme="http://scottalive.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
             <pubDate>Wed, 30 Aug 2023 09:17:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;eureka注册中心&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#eureka注册中心&#34;&gt;#&lt;/a&gt; Eureka 注册中心&lt;/h2&gt;
 &lt;h3 id=&#34;服务调用出现的问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#服务调用出现的问题&#34;&gt;#&lt;/a&gt; 服务调用出现的问题&lt;/h3&gt;
@@ -323,14 +323,14 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/springcloud/%E8%AE%A4%E8%AF%86%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/springcloud/%E8%AE%A4%E8%AF%86%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
             <title>认识微服务</title>
-            <link>http://www.luotao.shop/computer-science/java/springcloud/%E8%AE%A4%E8%AF%86%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="微服务" scheme="http://www.luotao.shop/categories/computer-science/java/springcloud/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <category term="微服务" scheme="http://www.luotao.shop/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
+            <link>http://scottalive.github.io/computer-science/java/springcloud/%E8%AE%A4%E8%AF%86%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="微服务" scheme="http://scottalive.github.io/categories/computer-science/java/springcloud/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <category term="微服务" scheme="http://scottalive.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
             <pubDate>Wed, 30 Aug 2023 08:04:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;认识微服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#认识微服务&#34;&gt;#&lt;/a&gt; 认识微服务&lt;/h2&gt;
 &lt;p&gt;微服务是一种经过良好架构设计的&lt;strong&gt;分布式&lt;/strong&gt;架构方案，微服务架构特征：&lt;/p&gt;
@@ -384,12 +384,12 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/%E6%93%8D%E7%BA%B5%E6%80%A7%E7%90%86%E5%AD%A6/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/%E6%93%8D%E7%BA%B5%E6%80%A7%E7%90%86%E5%AD%A6/</guid>
             <title>操纵性理学</title>
-            <link>http://www.luotao.shop/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/%E6%93%8D%E7%BA%B5%E6%80%A7%E7%90%86%E5%AD%A6/</link>
-            <category term="心理学" scheme="http://www.luotao.shop/categories/psychology/" />
-            <category term="操纵心理学" scheme="http://www.luotao.shop/categories/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/" />
-            <category term="心理学知识" scheme="http://www.luotao.shop/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E7%9F%A5%E8%AF%86/" />
+            <link>http://scottalive.github.io/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/%E6%93%8D%E7%BA%B5%E6%80%A7%E7%90%86%E5%AD%A6/</link>
+            <category term="心理学" scheme="http://scottalive.github.io/categories/psychology/" />
+            <category term="操纵心理学" scheme="http://scottalive.github.io/categories/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/" />
+            <category term="心理学知识" scheme="http://scottalive.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E7%9F%A5%E8%AF%86/" />
             <pubDate>Thu, 06 Jul 2023 22:17:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;操纵心理学&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#操纵心理学&#34;&gt;#&lt;/a&gt; 操纵心理学&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;不要相信” 都是为你好 “，拒绝做软柿子&lt;/strong&gt;&lt;/p&gt;
@@ -399,13 +399,13 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/introduction/%E5%8E%9F%E5%88%99/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/introduction/%E5%8E%9F%E5%88%99/</guid>
             <title>个人原则</title>
-            <link>http://www.luotao.shop/introduction/%E5%8E%9F%E5%88%99/</link>
-            <category term="个人简介" scheme="http://www.luotao.shop/categories/introduction/" />
-            <category term="原则" scheme="http://www.luotao.shop/tags/%E5%8E%9F%E5%88%99/" />
-            <category term="个人详情" scheme="http://www.luotao.shop/tags/%E4%B8%AA%E4%BA%BA%E8%AF%A6%E6%83%85/" />
-            <category term="个人分享" scheme="http://www.luotao.shop/tags/%E4%B8%AA%E4%BA%BA%E5%88%86%E4%BA%AB/" />
+            <link>http://scottalive.github.io/introduction/%E5%8E%9F%E5%88%99/</link>
+            <category term="个人简介" scheme="http://scottalive.github.io/categories/introduction/" />
+            <category term="原则" scheme="http://scottalive.github.io/tags/%E5%8E%9F%E5%88%99/" />
+            <category term="个人详情" scheme="http://scottalive.github.io/tags/%E4%B8%AA%E4%BA%BA%E8%AF%A6%E6%83%85/" />
+            <category term="个人分享" scheme="http://scottalive.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%88%86%E4%BA%AB/" />
             <pubDate>Thu, 22 Jun 2023 04:22:00 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;原则&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原则&#34;&gt;#&lt;/a&gt; 原则&lt;/h3&gt;
 &lt;ul&gt;
@@ -527,14 +527,14 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/interview/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/interview/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
             <title>Java基础面试题</title>
-            <link>http://www.luotao.shop/computer-science/java/interview/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="面试题" scheme="http://www.luotao.shop/categories/computer-science/java/interview/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
-            <category term="Java开发面试题" scheme="http://www.luotao.shop/tags/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/" />
+            <link>http://scottalive.github.io/computer-science/java/interview/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="面试题" scheme="http://scottalive.github.io/categories/computer-science/java/interview/" />
+            <category term="JavaSE" scheme="http://scottalive.github.io/tags/JavaSE/" />
+            <category term="Java开发面试题" scheme="http://scottalive.github.io/tags/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/" />
             <pubDate>Thu, 04 May 2023 00:28:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;java基础面试题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java基础面试题&#34;&gt;#&lt;/a&gt; Java 基础面试题&lt;/h2&gt;
 &lt;ol&gt;
@@ -662,15 +662,15 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81/</guid>
             <title>接口限流</title>
-            <link>http://www.luotao.shop/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="开发规范" scheme="http://www.luotao.shop/categories/computer-science/java/notice/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <category term="接口开发" scheme="http://www.luotao.shop/tags/%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" />
-            <category term="开发注意事项" scheme="http://www.luotao.shop/tags/%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" />
+            <link>http://scottalive.github.io/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="开发规范" scheme="http://scottalive.github.io/categories/computer-science/java/notice/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <category term="接口开发" scheme="http://scottalive.github.io/tags/%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" />
+            <category term="开发注意事项" scheme="http://scottalive.github.io/tags/%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" />
             <pubDate>Sat, 15 Apr 2023 11:07:40 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;接口限流&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#接口限流&#34;&gt;#&lt;/a&gt; 接口限流&lt;/h2&gt;
 &lt;p&gt;​		接口限流是一种常见的应用程序设计模式，它的目的是为了防止系统超载，保持系统的可用性。在应用程序中，特别是在大规模分布式系统中，限制流量可以有效地控制系统负载，并避免由于高负载而导致的系统崩溃。&lt;/p&gt;
@@ -712,29 +712,29 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%98%B2%E5%88%B7/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%98%B2%E5%88%B7/</guid>
             <title>接口防刷</title>
-            <link>http://www.luotao.shop/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%98%B2%E5%88%B7/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="开发规范" scheme="http://www.luotao.shop/categories/computer-science/java/notice/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <category term="接口开发" scheme="http://www.luotao.shop/tags/%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" />
-            <category term="开发注意事项" scheme="http://www.luotao.shop/tags/%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" />
+            <link>http://scottalive.github.io/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%98%B2%E5%88%B7/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="开发规范" scheme="http://scottalive.github.io/categories/computer-science/java/notice/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <category term="接口开发" scheme="http://scottalive.github.io/tags/%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" />
+            <category term="开发注意事项" scheme="http://scottalive.github.io/tags/%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" />
             <pubDate>Thu, 13 Apr 2023 11:17:40 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;接口防刷&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#接口防刷&#34;&gt;#&lt;/a&gt; 接口防刷&lt;/h2&gt;
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7/</guid>
             <title>接口实现幂等性</title>
-            <link>http://www.luotao.shop/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="开发规范" scheme="http://www.luotao.shop/categories/computer-science/java/notice/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <category term="接口开发" scheme="http://www.luotao.shop/tags/%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" />
-            <category term="开发注意事项" scheme="http://www.luotao.shop/tags/%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" />
+            <link>http://scottalive.github.io/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="开发规范" scheme="http://scottalive.github.io/categories/computer-science/java/notice/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <category term="接口开发" scheme="http://scottalive.github.io/tags/%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" />
+            <category term="开发注意事项" scheme="http://scottalive.github.io/tags/%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" />
             <pubDate>Thu, 13 Apr 2023 11:07:40 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;接口实现幂等性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#接口实现幂等性&#34;&gt;#&lt;/a&gt; 接口实现幂等性&lt;/h2&gt;
 &lt;p&gt;实现接口的幂等性是为了确保多次调用同一个接口请求不会对系统产生不一致的影响，即使请求被重复发送或执行多次，也应该具有相同的效果。在设计和实现接口时，可以采用以下一些方法来确保接口的幂等性：&lt;/p&gt;
@@ -752,14 +752,14 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/javase/Java%E9%9B%86%E5%90%88/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/javase/Java%E9%9B%86%E5%90%88/</guid>
             <title>Java集合</title>
-            <link>http://www.luotao.shop/computer-science/java/javase/Java%E9%9B%86%E5%90%88/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/categories/computer-science/java/javase/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <link>http://scottalive.github.io/computer-science/java/javase/Java%E9%9B%86%E5%90%88/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="JavaSE" scheme="http://scottalive.github.io/categories/computer-science/java/javase/" />
+            <category term="JavaSE" scheme="http://scottalive.github.io/tags/JavaSE/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
             <pubDate>Tue, 11 Apr 2023 22:44:59 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;java集合&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java集合&#34;&gt;#&lt;/a&gt; Java 集合&lt;/h2&gt;
 &lt;h3 id=&#34;arraylist&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#arraylist&#34;&gt;#&lt;/a&gt; ArrayList&lt;/h3&gt;
@@ -771,27 +771,27 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/psychology/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/%E5%BA%8F%E8%A8%80/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/psychology/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/%E5%BA%8F%E8%A8%80/</guid>
             <title>序言</title>
-            <link>http://www.luotao.shop/psychology/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/%E5%BA%8F%E8%A8%80/</link>
-            <category term="心理学" scheme="http://www.luotao.shop/categories/psychology/" />
-            <category term="自卑与超越" scheme="http://www.luotao.shop/categories/psychology/Inferiority-and-transcendence/" />
-            <category term="心理学知识" scheme="http://www.luotao.shop/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E7%9F%A5%E8%AF%86/" />
-            <category term="阿德勒心理学" scheme="http://www.luotao.shop/tags/%E9%98%BF%E5%BE%B7%E5%8B%92%E5%BF%83%E7%90%86%E5%AD%A6/" />
-            <category term="自卑与超越" scheme="http://www.luotao.shop/tags/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/" />
+            <link>http://scottalive.github.io/psychology/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/%E5%BA%8F%E8%A8%80/</link>
+            <category term="心理学" scheme="http://scottalive.github.io/categories/psychology/" />
+            <category term="自卑与超越" scheme="http://scottalive.github.io/categories/psychology/Inferiority-and-transcendence/" />
+            <category term="心理学知识" scheme="http://scottalive.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E7%9F%A5%E8%AF%86/" />
+            <category term="阿德勒心理学" scheme="http://scottalive.github.io/tags/%E9%98%BF%E5%BE%B7%E5%8B%92%E5%BF%83%E7%90%86%E5%AD%A6/" />
+            <category term="自卑与超越" scheme="http://scottalive.github.io/tags/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/" />
             <pubDate>Thu, 06 Apr 2023 21:58:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;自卑与超越&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自卑与超越&#34;&gt;#&lt;/a&gt; 自卑与超越&lt;/h2&gt;
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/</guid>
             <title>语言元素</title>
-            <link>http://www.luotao.shop/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Python" scheme="http://www.luotao.shop/categories/computer-science/python/" />
-            <category term="Python基础" scheme="http://www.luotao.shop/categories/computer-science/python/basic/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <category term="python" scheme="http://www.luotao.shop/tags/python/" />
+            <link>http://scottalive.github.io/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Python" scheme="http://scottalive.github.io/categories/computer-science/python/" />
+            <category term="Python基础" scheme="http://scottalive.github.io/categories/computer-science/python/basic/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <category term="python" scheme="http://scottalive.github.io/tags/python/" />
             <pubDate>Thu, 06 Apr 2023 17:51:49 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;语言元素&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#语言元素&#34;&gt;#&lt;/a&gt; 语言元素&lt;/h2&gt;
 &lt;h4 id=&#34;指令和程序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#指令和程序&#34;&gt;#&lt;/a&gt; 指令和程序&lt;/h4&gt;
@@ -940,14 +940,14 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/javase/String%E7%B1%BB/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</guid>
             <title>String类</title>
-            <link>http://www.luotao.shop/computer-science/java/javase/String%E7%B1%BB/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/categories/computer-science/java/javase/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <link>http://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="JavaSE" scheme="http://scottalive.github.io/categories/computer-science/java/javase/" />
+            <category term="JavaSE" scheme="http://scottalive.github.io/tags/JavaSE/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
             <pubDate>Fri, 31 Mar 2023 09:37:00 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;string类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#string类&#34;&gt;#&lt;/a&gt; String 类&lt;/h3&gt;
 &lt;p&gt;​		 &lt;code&gt;String&lt;/code&gt;  是 &lt;code&gt;Java&lt;/code&gt;  中非常常用的一个类，它代表了一个字符串对象。在 &lt;code&gt;Java&lt;/code&gt;  中，字符串是不可变的，也就是说，一旦一个字符串对象被创建，它的值就不能被改变。因此，每次对字符串进行修改，都会创建一个新的字符串对象。&lt;/p&gt;
@@ -1008,14 +1008,14 @@
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</guid>
+            <guid isPermalink="true">http://scottalive.github.io/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</guid>
             <title>日期类</title>
-            <link>http://www.luotao.shop/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/categories/computer-science/java/javase/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
+            <link>http://scottalive.github.io/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</link>
+            <category term="计算机科学" scheme="http://scottalive.github.io/categories/computer-science/" />
+            <category term="Java" scheme="http://scottalive.github.io/categories/computer-science/java/" />
+            <category term="JavaSE" scheme="http://scottalive.github.io/categories/computer-science/java/javase/" />
+            <category term="JavaSE" scheme="http://scottalive.github.io/tags/JavaSE/" />
+            <category term="编程笔记" scheme="http://scottalive.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
             <pubDate>Fri, 31 Mar 2023 09:37:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;java日期类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java日期类&#34;&gt;#&lt;/a&gt; Java 日期类&lt;/h2&gt;
 &lt;p&gt;​		 &lt;code&gt;Java&lt;/code&gt;  日期类主要包括 &lt;code&gt;java.util.Date&lt;/code&gt; 、 &lt;code&gt;java.util.Calendar&lt;/code&gt;  和 &lt;code&gt;java.time&lt;/code&gt;  包下的类。&lt;/p&gt;
