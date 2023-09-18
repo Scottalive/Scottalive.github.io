@@ -10,10 +10,154 @@
         </author>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 17 Sep 2023 19:36:00 +0800</pubDate>
-        <lastBuildDate>Sun, 17 Sep 2023 19:36:00 +0800</lastBuildDate>
+        <pubDate>Tue, 19 Sep 2023 05:54:00 +0800</pubDate>
+        <lastBuildDate>Tue, 19 Sep 2023 05:54:00 +0800</lastBuildDate>
         <category term="博文" />
         <category term="资源分享" />
+        <item>
+            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/arithmetic/3-%E5%8A%9B%E6%89%A3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89/</guid>
+            <title>力扣算法题-3-无重复字符的最长子串</title>
+            <link>http://www.luotao.shop/computer-science/java/arithmetic/3-%E5%8A%9B%E6%89%A3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89/</link>
+            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
+            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
+            <category term="算法" scheme="http://www.luotao.shop/categories/computer-science/java/arithmetic/" />
+            <category term="力扣算法题" scheme="http://www.luotao.shop/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/" />
+            <pubDate>Tue, 19 Sep 2023 05:54:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;无重复字符的最长子串&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#无重复字符的最长子串&#34;&gt;#&lt;/a&gt; 无重复字符的最长子串&lt;/h2&gt;
+&lt;p&gt;给定一个字符串  &lt;code&gt;s&lt;/code&gt;  ，请你找出其中不含有重复字符的 &lt;strong&gt;最长子串&lt;/strong&gt; 的长度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入: s = &amp;quot;abcabcbb&amp;quot;
+输出: 3 
+解释: 因为无重复字符的最长子串是 &amp;quot;abc&amp;quot;，所以其长度为 3。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;示例 2:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入: s = &amp;quot;bbbbb&amp;quot;
+输出: 1
+解释: 因为无重复字符的最长子串是 &amp;quot;b&amp;quot;，所以其长度为 1。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;示例 3:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入: s = &amp;quot;pwwkew&amp;quot;
+输出: 3
+解释: 因为无重复字符的最长子串是 &amp;quot;wke&amp;quot;，所以其长度为 3。
+     请注意，你的答案必须是 子串 的长度，&amp;quot;pwke&amp;quot; 是一个子序列，不是子串。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;提示：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;0 &amp;lt;= s.length &amp;lt;= 5 * 104&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s&lt;/code&gt;  由英文字母、数字、符号和空格组成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;解法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;思路：&lt;/strong&gt;&lt;br /&gt;
+这道题主要用到思路是：滑动窗口&lt;/p&gt;
+&lt;p&gt;什么是滑动窗口？&lt;/p&gt;
+&lt;p&gt;其实就是一个队列，比如例题中的 abcabcbb，进入这个队列（窗口）为 abc 满足题目要求，当再进入 a，队列变成了 abca，这时候不满足要求。所以，我们要移动这个队列！&lt;/p&gt;
+&lt;p&gt;如何移动？&lt;/p&gt;
+&lt;p&gt;我们只要把队列的左边的元素移出就行了，直到满足题目要求！&lt;/p&gt;
+&lt;p&gt;一直维持这样的队列，找出队列出现最长的长度时候，求出解！&lt;/p&gt;
+&lt;p&gt;时间复杂度：O (n)&lt;/p&gt;
+&lt;h2 id=&#34;代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码&#34;&gt;#&lt;/a&gt; 代码：&lt;/h2&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Solution&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;lengthOfLongestSubstring&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; s&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;Map&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Character&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; map &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HashMap&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; max &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; left &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; i&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;i&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;s&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;i&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;containsKey&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;s&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;charAt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                left &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Math&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;left&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;s&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;charAt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;s&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;charAt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            max &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Math&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;max&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;i&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;left&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/arithmetic/2-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E4%B8%AD%E7%AD%89/</guid>
+            <title>力扣算法题-2-两数相加</title>
+            <link>http://www.luotao.shop/computer-science/java/arithmetic/2-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E4%B8%AD%E7%AD%89/</link>
+            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
+            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
+            <category term="算法" scheme="http://www.luotao.shop/categories/computer-science/java/arithmetic/" />
+            <category term="力扣算法题" scheme="http://www.luotao.shop/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/" />
+            <pubDate>Tue, 19 Sep 2023 05:43:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;力扣算法题-2-两数相加&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#力扣算法题-2-两数相加&#34;&gt;#&lt;/a&gt; 力扣算法题 - 2 - 两数相加&lt;/h2&gt;
+&lt;p&gt;给你两个 &lt;strong&gt;非空&lt;/strong&gt; 的链表，表示两个非负的整数。它们每位数字都是按照 &lt;strong&gt;逆序&lt;/strong&gt; 的方式存储的，并且每个节点只能存储 &lt;strong&gt;一位&lt;/strong&gt; 数字。&lt;/p&gt;
+&lt;p&gt;请你将两个数相加，并以相同形式返回一个表示和的链表。&lt;/p&gt;
+&lt;p&gt;你可以假设除了数字 0 之外，这两个数都不会以 0 开头。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例 1：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：l1 = [2,4,3], l2 = [5,6,4]
+输出：[7,0,8]
+解释：342 + 465 = 807.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;示例 2：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：l1 = [0], l2 = [0]
+输出：[0]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;示例 3：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+输出：[8,9,9,9,0,0,0,1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;提示：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个链表中的节点数在范围  &lt;code&gt;[1, 100]&lt;/code&gt;  内&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;0 &amp;lt;= Node.val &amp;lt;= 9&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;题目数据保证列表表示的数字不含前导零&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;解法：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;思路&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;标签：链表&lt;/li&gt;
+&lt;li&gt;将两个链表看成是相同长度的进行遍历，如果一个链表较短则在前面补 000，比如 987 + 23 = 987 + 023 = 1010&lt;/li&gt;
+&lt;li&gt;每一位计算的同时需要考虑上一位的进位问题，而当前位计算结束后同样需要更新进位值&lt;br /&gt;
+如果两个链表全部遍历完毕后，进位值为 111，则在新链表最前方添加节点 1&lt;/li&gt;
+&lt;li&gt;小技巧：对于链表问题，返回结果为头结点时，通常需要先初始化一个预先指针 pre，该指针的下一个节点指向真正的头结点 head。使用预先指针的目的在于链表初始化时无可用节点值，而且链表构造过程需要指针移动，进而会导致头指针丢失，无法返回结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;代码&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/**&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; * Definition for singly-linked list.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; * public class ListNode &amp;#123;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; *     int val;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; *     ListNode next;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; *     ListNode(int x) &amp;#123; val = x; &amp;#125;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; * &amp;#125;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Solution&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;addTwoNumbers&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; l1&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; l2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; pre &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt; cur &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; pre&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; carry &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;l1 &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;||&lt;/span&gt; l2 &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; x &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; l1 &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; l1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;val&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; y &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; l2 &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; l2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;val&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; sum &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; x &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; y &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; carry&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            carry &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; sum &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            sum &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; sum &lt;span class=&#34;token operator&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            cur&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;sum&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            cur &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; cur&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;l1 &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                l1 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; l1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;l2 &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                l2 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; l2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;carry &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            cur&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ListNode&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;carry&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; pre&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/arithmetic/1-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-%E7%AE%80%E5%8D%95/</guid>
+            <title>力扣算法题-1-两数之和</title>
+            <link>http://www.luotao.shop/computer-science/java/arithmetic/1-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-%E7%AE%80%E5%8D%95/</link>
+            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
+            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
+            <category term="算法" scheme="http://www.luotao.shop/categories/computer-science/java/arithmetic/" />
+            <category term="力扣算法题" scheme="http://www.luotao.shop/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/" />
+            <pubDate>Tue, 19 Sep 2023 05:22:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;两数之和&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#两数之和&#34;&gt;#&lt;/a&gt; 两数之和&lt;/h2&gt;
+&lt;h3 id=&#34;两数之和-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#两数之和-2&#34;&gt;#&lt;/a&gt; 两数之和&lt;/h3&gt;
+&lt;p&gt;给定一个整数数组  &lt;code&gt;nums&lt;/code&gt;  和一个整数目标值  &lt;code&gt;target&lt;/code&gt; ，请你在该数组中找出 &lt;strong&gt;和为目标值&lt;/strong&gt; &lt;em&gt; &lt;code&gt;target&lt;/code&gt; &lt;/em&gt; 的那 &lt;strong&gt;两个&lt;/strong&gt; 整数，并返回它们的数组下标。&lt;/p&gt;
+&lt;p&gt;你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。&lt;/p&gt;
+&lt;p&gt;你可以按任意顺序返回答案。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例 1：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：nums = [2,7,11,15], target = 9
+输出：[0,1]
+解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;示例 2：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：nums = [3,2,4], target = 6
+输出：[1,2]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;示例 3：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：nums = [3,3], target = 6
+输出：[0,1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;提示：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;2 &amp;lt;= nums.length &amp;lt;= 104&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-109 &amp;lt;= nums[i] &amp;lt;= 109&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-109 &amp;lt;= target &amp;lt;= 109&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;只会存在一个有效答案&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;** 进阶：** 你可以想出一个时间复杂度小于  &lt;code&gt;O(n2)&lt;/code&gt;  的算法吗？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;方法一：暴力枚举&lt;br /&gt;
+思路及算法&lt;/p&gt;
+&lt;p&gt;最容易想到的方法是枚举数组中的每一个数 x，寻找数组中是否存在 target - x。&lt;/p&gt;
+&lt;p&gt;当我们使用遍历整个数组的方式寻找 target - x 时，需要注意到每一个位于 x 之前的元素都已经和 x 匹配过，因此不需要再进行匹配。而每一个元素不能被使用两次，所以我们只需要在 x 后面的元素中寻找 target - x。&lt;/p&gt;
+&lt;p&gt;代码&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Solution&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;twoSum&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; nums&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; target&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; n &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; nums&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;length&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; j &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; j &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;j&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;nums&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; nums&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;j&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; target&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; j&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;复杂度分析&lt;/p&gt;
+&lt;p&gt;时间复杂度：O (N2)，其中 N 是数组中的元素数量。最坏情况下数组中任意两个数都要被匹配一次。&lt;/p&gt;
+&lt;p&gt;空间复杂度：O (1)。&lt;/p&gt;
+&lt;p&gt;方法二：哈希表&lt;br /&gt;
+思路及算法&lt;/p&gt;
+&lt;p&gt;注意到方法一的时间复杂度较高的原因是寻找 target - x 的时间复杂度过高。因此，我们需要一种更优秀的方法，能够快速寻找数组中是否存在目标元素。如果存在，我们需要找出它的索引。&lt;/p&gt;
+&lt;p&gt;使用哈希表，可以将寻找 target - x 的时间复杂度降低到从 O (N) 降低到 O (1)。&lt;/p&gt;
+&lt;p&gt;这样我们创建一个哈希表，对于每一个 x，我们首先查询哈希表中是否存在 target - x，然后将 x 插入到哈希表中，即可保证不会让 x 和自己匹配。&lt;/p&gt;
+&lt;p&gt;代码&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Solution&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;twoSum&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; nums&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; target&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;Map&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; hashtable &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HashMap&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; nums&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;length&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;hashtable&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;containsKey&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;target &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt; nums&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;hashtable&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;target &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt; nums&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; i&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            hashtable&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;nums&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;复杂度分析&lt;/p&gt;
+&lt;p&gt;时间复杂度：O (N)，其中 N 是数组中的元素数量。对于每一个元素 x，我们可以 O (1) 地寻找 target - x。&lt;/p&gt;
+&lt;p&gt;空间复杂度：O (N)，其中 N 是数组中的元素数量。主要为哈希表的开销。&lt;/p&gt;
+&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://www.luotao.shop/introduction/%E5%9D%8F%E4%B9%A0%E6%83%AF/</guid>
             <title>坏习惯</title>
@@ -1096,489 +1240,6 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
-            <title>Java基本数据类型</title>
-            <link>http://www.luotao.shop/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/categories/computer-science/java/javase/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <pubDate>Fri, 31 Mar 2023 00:00:01 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;java八大基本数据类型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java八大基本数据类型&#34;&gt;#&lt;/a&gt; Java 八大基本数据类型&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;数据类型&lt;/th&gt;
-&lt;th&gt;大小&lt;/th&gt;
-&lt;th&gt;默认值&lt;/th&gt;
-&lt;th&gt;取值范围&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;byte&lt;/td&gt;
-&lt;td&gt;1 字节&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;-128 到 127&lt;/td&gt;
-&lt;td&gt;有符号整数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;short&lt;/td&gt;
-&lt;td&gt;2 字节&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;-32,768 到 32,767&lt;/td&gt;
-&lt;td&gt;有符号整数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;4 字节&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;-2,147,483,648 到 2,147,483,647&lt;/td&gt;
-&lt;td&gt;有符号整数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;long&lt;/td&gt;
-&lt;td&gt;8 字节&lt;/td&gt;
-&lt;td&gt;0L&lt;/td&gt;
-&lt;td&gt;-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807&lt;/td&gt;
-&lt;td&gt;有符号整数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;4 字节&lt;/td&gt;
-&lt;td&gt;0.0f&lt;/td&gt;
-&lt;td&gt;1.4E-45 到 3.4028235E38&lt;/td&gt;
-&lt;td&gt;浮点数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;double&lt;/td&gt;
-&lt;td&gt;8 字节&lt;/td&gt;
-&lt;td&gt;0.0d&lt;/td&gt;
-&lt;td&gt;4.9E-324 到 1.7976931348623157E308&lt;/td&gt;
-&lt;td&gt;双精度浮点数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;char&lt;/td&gt;
-&lt;td&gt;2 字节&lt;/td&gt;
-&lt;td&gt;&#39;\u0000&#39;&lt;/td&gt;
-&lt;td&gt;&#39;\u0000&#39; 到 &#39;\uffff&#39; (0 到 65,535)&lt;/td&gt;
-&lt;td&gt;Unicode 字符&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;boolean&lt;/td&gt;
-&lt;td&gt;没有固定大小&lt;/td&gt;
-&lt;td&gt;false&lt;/td&gt;
-&lt;td&gt;true 或 false&lt;/td&gt;
-&lt;td&gt;true 或 false 值&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;java基本数据类型对应的包装类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java基本数据类型对应的包装类&#34;&gt;#&lt;/a&gt; Java 基本数据类型对应的包装类&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;数据类型&lt;/th&gt;
-&lt;th&gt;对应包装类&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;byte&lt;/td&gt;
-&lt;td&gt;Byte&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;short&lt;/td&gt;
-&lt;td&gt;Short&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;Integer&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;long&lt;/td&gt;
-&lt;td&gt;Long&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;Float&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;double&lt;/td&gt;
-&lt;td&gt;Double&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;char&lt;/td&gt;
-&lt;td&gt;Character&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;boolean&lt;/td&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;包装类常用方法和特别设计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#包装类常用方法和特别设计&#34;&gt;#&lt;/a&gt; 包装类常用方法和特别设计&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Byte&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;常用方法：valueOf (byte b)、byteValue ()、compareTo (Byte anotherByte)、equals (Object obj)、toString ()、hashCode ()&lt;/li&gt;
-&lt;li&gt;特别设计：缓存了 - 128~127 之间的所有 Byte 对象，可以使用 Byte.valueOf (byte b) 方法直接返回缓存的对象，避免重复创建对象&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Short&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;常用方法：valueOf (short s)、shortValue ()、compareTo (Short anotherShort)、equals (Object obj)、toString ()、hashCode ()&lt;/li&gt;
-&lt;li&gt;特别设计：缓存了 - 128~127 之间的所有 Short 对象，可以使用 Short.valueOf (short s) 方法直接返回缓存的对象，避免重复创建对象&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Integer&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;常用方法：valueOf (int i)、intValue ()、compareTo (Integer anotherInteger)、equals (Object obj)、toString ()、hashCode ()&lt;/li&gt;
-&lt;li&gt;特别设计：缓存了 - 128~127 之间的所有 Integer 对象，可以使用 Integer.valueOf (int i) 方法直接返回缓存的对象，避免重复创建对象&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Long&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;常用方法：valueOf (long l)、longValue ()、compareTo (Long anotherLong)、equals (Object obj)、toString ()、hashCode ()&lt;/li&gt;
-&lt;li&gt;特别设计：缓存了 - 128~127 之间的所有 Long 对象，可以使用 Long.valueOf (long l) 方法直接返回缓存的对象，避免重复创建对象&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Float&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;常用方法：valueOf (float f)、floatValue ()、compareTo (Float anotherFloat)、equals (Object obj)、toString ()、hashCode ()&lt;/li&gt;
-&lt;li&gt;特别设计：没有特别设计&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Double&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;常用方法：valueOf (double d)、doubleValue ()、compareTo (Double anotherDouble)、equals (Object obj)、toString ()、hashCode ()&lt;/li&gt;
-&lt;li&gt;特别设计：没有特别设计&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Character&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;常用方法：valueOf (char c)、charValue ()、compareTo (Character anotherCharacter)、equals (Object obj)、toString ()、hashCode ()&lt;/li&gt;
-&lt;li&gt;特别设计：缓存了 0~127 之间的所有 Character 对象，可以使用 Character.valueOf (char c) 方法直接返回缓存的对象，避免重复创建对象&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Boolean&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;常用方法：valueOf (boolean b)、booleanValue ()、compareTo (Boolean anotherBoolean)、equals (Object obj)、toString ()、hashCode ()&lt;/li&gt;
-&lt;li&gt;特别设计：缓存了 Boolean 类型的 TRUE 和 FALSE 两个对象&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;​		当 Java 自动装箱时，会重用对象，将一些常见的包装类对象缓存起来以提高性能和降低内存占用。下面是几个常用的包装类缓存示例：&lt;/p&gt;
-&lt;h3 id=&#34;包装类缓存示例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#包装类缓存示例&#34;&gt;#&lt;/a&gt; 包装类缓存示例&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Integer 类的缓存示例：&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt; a &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt; b &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;a &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;//true，因为 10 在缓存范围内&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt; c &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt; d &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;c &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; d&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;//false，因为 128 不在缓存范围内&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;​		&lt;strong&gt;解释&lt;/strong&gt;：在 Integer 类中，缓存了 -128 到 127 的 Integer 对象。因此，当值为在这个范围内时，自动装箱后的对象会直接从缓存中获取，而不是新建一个对象。因此，a 和 b 的值都是 10，因为它们共享了同一个对象，所以比较时结果为 true。而 c 和 d 的值都是 128，但由于它们不在缓存范围内，所以自动装箱后会新建两个对象，所以比较时结果为 false。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Boolean 类的缓存示例：&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Boolean&lt;/span&gt; a &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Boolean&lt;/span&gt; b &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;a &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;//true，因为 true 和 false 都有缓存&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Boolean&lt;/span&gt; c &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Boolean&lt;/span&gt; d &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;c &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; d&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;//true，因为 true 和 false 都有缓存&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;​		&lt;strong&gt;解释&lt;/strong&gt;：在 Boolean 类中，缓存了 true 和 false 两个对象。因此，当自动装箱时，这两个对象会直接从缓存中获取，而不是新建对象。因此，a 和 b 都是 true，且共享了同一个对象，所以比较时结果为 true。而 c 和 d 都是 false，且共享了同一个对象，所以比较时结果为 true。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Character 类的缓存示例：&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Character&lt;/span&gt; a &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token char&#34;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Character&lt;/span&gt; b &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token char&#34;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;a &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;//true，因为 a 在缓存范围内&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Character&lt;/span&gt; c &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token char&#34;&gt;&#39;中&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Character&lt;/span&gt; d &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token char&#34;&gt;&#39;中&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;c &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; d&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;//false，因为 &#39; 中 &#39; 不在缓存范围内&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;​		&lt;strong&gt;解释&lt;/strong&gt;：在 Character 类中，缓存了 Unicode 编码从 0 到 127 的字符。因此，当自动装箱时，这些字符会直接从缓存中获取，而不是新建对象。因此，a 和 b 的值都是 &#39;a&#39;，且共享了同一个对象，所以比较时结果为 true。而 c 和 d 的值都是 &#39; 中 &#39;，但由于它们不在缓存范围内，所以自动装箱后会新建两个对象，所以比较时结果为 false。&lt;/p&gt;
-&lt;p&gt;​		需要注意的是，虽然自动装箱时会重用对象，但如果使用构造函数手动创建对象，则不会使用缓存，每次都会新建一个对象。&lt;/p&gt;
-&lt;h3 id=&#34;包装类对象的相互转化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#包装类对象的相互转化&#34;&gt;#&lt;/a&gt; 包装类对象的相互转化&lt;/h3&gt;
-&lt;p&gt;​		当我们需要在基本数据类型和包装类之间进行转换时，可以使用 Java 中提供的自动装箱和自动拆箱机制，也可以手动调用包装类提供的转换方法。以下是一些常见的基本数据类型和包装类之间的转换示例：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;基本数据类型转换成对应的包装类：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; num &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt; numWrapper &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;num&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;包装类转换成对应的基本数据类型：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Double&lt;/span&gt; doubleWrapper &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Double&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3.14&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;double&lt;/span&gt; num &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; doubleWrapper&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;doubleValue&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;使用自动装箱和自动拆箱：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; num &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt; numWrapper &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; num&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 自动装箱&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; newNum &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; numWrapper&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;// 自动拆箱&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;字符串转换成包装类：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;123&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt; numWrapper &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;str&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;包装类转换成字符串：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt; numWrapper &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;123&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; numWrapper&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;toString&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;​		需要注意的是，在进行基本数据类型和字符串之间的转换时，也可以使用  &lt;code&gt;parseInt()&lt;/code&gt;  和  &lt;code&gt;valueOf()&lt;/code&gt;  等方法。例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; num &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;parseInt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;123&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;toString&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;123&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;自动装箱和自动拆箱&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自动装箱和自动拆箱&#34;&gt;#&lt;/a&gt; 自动装箱和自动拆箱&lt;/h3&gt;
-&lt;p&gt;​		在 Java 中，自动装箱和自动拆箱是指基本数据类型与其对应的包装类之间的自动转换，使得它们在使用上可以互相替换，从而使代码更加简洁和易读。&lt;/p&gt;
-&lt;p&gt;​		具体来说，自动装箱是指将基本数据类型自动转换为对应的包装类，而自动拆箱则是指将包装类自动转换为对应的基本数据类型。这样一来，程序员在使用时就无需手动进行类型转换，编译器会自动帮助完成。&lt;/p&gt;
-&lt;p&gt;​		下面是自动装箱和自动拆箱的示例代码：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 自动装箱&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Integer&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 相当于 Integer i = Integer.valueOf (10);&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 自动拆箱&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; j &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; i&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 相当于 int j = i.intValue ();&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;​		从上面的示例代码可以看出，自动装箱和自动拆箱让代码更加简洁，减少了程序员的工作量，提高了代码的可读性和可维护性。&lt;/p&gt;
-&lt;p&gt;​		其原理是编译器自动在编译时将代码进行转换。对于自动装箱，编译器会将基本数据类型转换为对应的包装类类型，调用相应的 valueOf 方法进行装箱；对于自动拆箱，编译器会将包装类类型转换为对应的基本数据类型，调用相应的 xxxValue 方法进行拆箱。这样一来，程序员就可以像操作基本数据类型一样操作包装类类型了。&lt;/p&gt;
-&lt;p&gt;​		需要注意的是，自动装箱和自动拆箱虽然方便了编程，但是也会带来性能问题。在大量使用时，建议手动进行类型转换，以提高程序性能。&lt;/p&gt;
-&lt;h3 id=&#34;其他注意项&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他注意项&#34;&gt;#&lt;/a&gt; 其他注意项&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;类型转换&lt;/strong&gt;：Java 中的数据类型有不同的大小和精度，如果将一个大的数据类型转换为一个小的数据类型，会导致数据精度的丢失，这就需要进行类型转换。类型转换可以分为隐式类型转换和显式类型转换两种。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;final 关键字&lt;/strong&gt;：final 关键字可以用来修饰变量、方法和类。final 修饰的变量不能被修改，final 修饰的方法不能被覆盖，final 修饰的类不能被继承。对于基本数据类型，final 修饰的变量必须被初始化，一旦被初始化后就不能再次被修改。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;枚举类型&lt;/strong&gt;：Java 中的枚举类型可以列出一组常量，并为这些常量赋予特定的值。枚举类型可以用来取代常量，使代码更加可读和易于维护。枚举类型也是一种特殊的类，可以有构造函数、方法和字段。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;变量作用域&lt;/strong&gt;：在 Java 中，变量有不同的作用域，变量的作用域决定了变量在程序中可以被访问的范围。Java 中有四种作用域：类作用域、方法作用域、块作用域和局部作用域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;常量池&lt;/strong&gt;：Java 中的常量池是指在编译时确定的、存储在.class 文件中的常量集合。常量池中可以包含字符串、数字、类名、方法名等常量。Java 的数据类型也有对应的常量池，例如 Integer 类型的常量池中包含了 - 128~127 之间的整数。常量池可以提高程序的运行效率，减少内存的占用。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;这些内容也是 Java 数据类型中比较重要的一些方面，需要开发者在日常的开发中注意。&lt;/strong&gt;&lt;/p&gt;
-&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</guid>
-            <title>Java发展历程</title>
-            <link>http://www.luotao.shop/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/categories/computer-science/java/javase/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;为什么叫java&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么叫java&#34;&gt;#&lt;/a&gt; 为什么叫 Java？&lt;/h3&gt;
-&lt;p&gt;​			Java 平台和语言最开始只是 SUN 公司在 1990 年 12 月开始研究的一个内部项目。SUN 公司的一个叫做帕特里克・诺顿的工程师被自己开发的 C 和 C 语言编译器搞得焦头烂额，因为其中的 API 极其难用。帕特里克决定改用 NeXT，同时他也获得了研究公司的一个叫做 “Stealth 计划” 的项目的机会。&lt;br /&gt;
-   “Stealth 计划” 后来改名为 “Green 计划”，JGosling (詹姆斯・高斯林）和麦克・舍林丹也加入了帕特里克的工作小组。他们和其他几个工程师一起在加利福尼亚州门罗帕克市沙丘路的一个小工作室里面研究开发新技术，瞄准下一代智能家电（如微波炉）的程序设计，SUN 公司预料未来科技将在家用电器领域大显身手。团队最初考虑使用 C 语言，但是很多成员包括 SUN 的首席科学家比尔・乔伊，发现 C 和可用的 API 在某些方面存在很大问题。&lt;br /&gt;
-   工作小组使用的是内嵌类型平台，可以用的资源极其有限。很多成员发现 C 太复杂以至很多开发者经常错误使用。他们发现 C 缺少垃圾回收系统，还有可移植的安全性、分布程序设计、和多线程功能。最后，他们想要一种易于移植到各种设备上的平台。&lt;br /&gt;
-   根据可用的资金，比尔・乔伊决定开发一种集 C 语言和 Mesa 语言搭成的新语言，在一份报告上，乔伊把它叫做 “未来”，他提议 SUN 公司的工程师应该在 C 的基础上，开发一种面向对象的环境。最初，高斯林试图修改和扩展 C 的功能，他自己称这种新语言为 C –，但是后来他放弃了。他将要创造出一种全新的语言，被他命名为 “Oak”（橡树），以他的办公室外的树而命名。&lt;br /&gt;
-就像很多开发新技术的秘密的工程一样，工作小组没日没夜地工作到了 1992 年的夏天，他们能够演示新平台的一部分了，包括 Green 操作系统，Oak 的程序设计语言，类库，和其硬件。最初的尝试是面向一种类 PDA 设备，被命名为 Star7，这种设备有鲜艳的图形界面和被称为 “Duke” 的智能代理来帮助用户。1992 年 12 月 3 日，这台设备进行了展示。&lt;br /&gt;
-   同年 11 月，Green 计划被转化成了 “FirstPerson 有限公司”，一个 SUN 公司的全资子公司，团队也被重新安排到了帕洛阿尔托。FirstPerson 团队对建造一种高度互动的设备感兴趣，当时代华纳发布了一个关于电视机顶盒的征求提议书时（Request for proposal），FirstPerson 改变了他们的目标，作为对征求意见书的响应，提出了一个机顶盒平台的提议。但是有线电视业界觉得 FirstPerson 的平台给予用户过多地控制权，因此 FirstPerson 的投标败给了 SGI。与 3DO 公司的另外一笔关于机顶盒的交易也没有成功，由于他们的平台不能在电视工业产生任何效益，公司再并回 SUN 公司。&lt;br /&gt;
-   JAVA 应用 1994 年 6、7 月间，在经历了一场历时三天的头脑风暴的讨论之后，约翰・盖吉、詹姆斯・高斯林、比尔・乔伊、帕特里克・诺顿、韦恩・罗斯因和埃里克・斯库米，团队决定再一次改变了努力的目标，这次他们决定将该技术应用于万维网。他们认为随着 Mosaic 浏览器的到来，因特网正在向同样的高度互动的远景演变，而这一远景正是他们在有线电视网中看到的。作为原型，帕特里克・诺顿写了一个小型万维网浏览器，WebRunner，后来改名为 HotJava。同年，Oak 改名为 Java。商标搜索显示，Oak 已被一家显卡制造商注册，因此团队找到了一个新名字。这个名字是在很多成员常去的本地咖啡馆中杜撰出来的。名字是不是首字母缩写还不清楚，很大程度上来说不是。虽然有人声称是开发人员名字的组合：James Gosling（詹姆斯・高斯林）Arthur Van Hoff（阿瑟・凡・霍夫）Andy Bechtolsheim（安迪・贝克托克姆），或 “Just Another Vague Acronym”（只是另外一个含糊的缩写）。还有一种比较可信的说法是这个名字是出于对咖啡的喜爱，所以以 Java 咖啡来命名。类文件的前四个字节如果用十六进制阅读的话，分别为 CA FE BA BE，就会拼出两个单词 “CAFE BABE”（咖啡宝贝）。&lt;br /&gt;
-   1994 年 10 月，HotJava 和 Java 平台为公司高层进行演示。1994 年，Java 1.0a 版本已经可以提供下载，但是 Java 和 HotJava 浏览器的第一次公开发布却是在 1995 年 5 月 23 日 SunWorld 大会上进行的。SUN 公司的科学指导约翰・盖吉宣告 Java 技术。这个发布是与网景公司的执行副总裁马克・安德森的惊人发布一起进行的，宣布网景将在其浏览器中包含对 Java 的支持。1996 年 1 月，升阳公司成立了 Java 业务集团，专门开发 Java 技术。&lt;/p&gt;
-&lt;h3 id=&#34;jdk发展历程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jdk发展历程&#34;&gt;#&lt;/a&gt; JDK 发展历程&lt;/h3&gt;
-&lt;p&gt;​		1996 年 1 月，Sun 公司发布了 Java 的第一个开发工具包（JDK 1.0），这是 Java 发展历程中的重要里程碑，标志着 Java 成为一种独立的开发工具。9 月，约 8.3 万个网页应用了 Java 技术来制作。10 月，Sun 公司发布了 Java 平台的第一个即时（JIT）编译器。&lt;/p&gt;
-&lt;p&gt;​		1997 年 2 月，JDK 1.1 面世，在随后的 3 周时间里，达到了 22 万次的下载量。4 月 2 日，Java One 会议召开，参会者逾一万人，创当时全球同类会议规模之纪录。9 月，Java Developer Connection 社区成员超过 10 万。&lt;/p&gt;
-&lt;p&gt;​		1998 年 12 月 8 日，第二代 Java 平台的企业版 J2EE 发布。1999 年 6 月，Sun 公司发布了第二代 Java 平台（简称为 Java2）的 3 个版本：J2ME（Java2 Micro Edition，Java2 平台的微型版），应用于移动、无线及有限资源的环境；J2SE（Java 2 Standard Edition，Java 2 平台的标准版），应用于桌面环境；J2EE（Java 2Enterprise Edition，Java 2 平台的企业版），应用于基于 Java 的应用服务器。Java 2 平台的发布，是 Java 发展过程中最重要的一个里程碑，标志着 Java 的应用开始普及。&lt;/p&gt;
-&lt;p&gt;​		1999 年 4 月 27 日，HotSpot 虚拟机发布。HotSpot 虚拟机发布时是作为 JDK 1.2 的附加程序提供的，后来它成为了 JDK 1.3 及之后所有版本的 Sun JDK 的默认虚拟机  。&lt;/p&gt;
-&lt;p&gt;​		2000 年 5 月，JDK1.3、JDK1.4 和 J2SE1.3 相继发布，几周后其获得了苹果公司 Mac OS X 的工业标准的支持。2001 年 9 月 24 日，J2EE1.3 发布。2002 年 2 月 26 日，J2SE1.4 发布。自此 Java 的计算能力有了大幅提升，与 J2SE1.3 相比，其多了近 62% 的类和接口。在这些新特性当中，还提供了广泛的 XML 支持、安全套接字（Socket）支持（通过 SSL 与 TLS 协议）、全新的 I/OAPI、正则表达式、日志与断言。2004 年 9 月 30 日，J2SE1.5 发布，成为 Java 语言发展史上的又一里程碑。为了表示该版本的重要性，J2SE 1.5 更名为 Java SE 5.0（内部版本号 1.5.0），代号为 “Tiger”，Tiger 包含了从 1996 年发布 1.0 版本以来的最重大的更新，其中包括泛型支持、基本类型的自动装箱、改进的循环、枚举类型、格式化 I/O 及可变参数。&lt;/p&gt;
-&lt;p&gt;​		2005 年 6 月，在 Java One 大会上，Sun 公司发布了 Java SE 6。此时，Java 的各种版本已经更名，已取消其中的数字 2，如 J2EE 更名为 JavaEE，J2SE 更名为 JavaSE，J2ME 更名为 JavaME。&lt;/p&gt;
-&lt;p&gt;​		2006 年 11 月 13 日，Java 技术的发明者 Sun 公司宣布，将 Java 技术作为免费软件对外发布。Sun 公司正式发布的有关 Java 平台标准版的第一批源代码，以及 Java 迷你版的可执行源代码。从 2007 年 3 月起，全世界所有的开发人员均可对 Java 源代码进行修改 。&lt;/p&gt;
-&lt;p&gt;​		2009 年，甲骨文公司宣布收购 Sun   。2010 年，Java 编程语言的共同创始人之一詹姆斯・高斯林从 Oracle 公司辞职。2011 年，甲骨文公司举行了全球性的活动，以庆祝 Java7 的推出，随后 Java7 正式发布。&lt;/p&gt;
-&lt;p&gt;​		2014 年，甲骨文公司发布了 Java8 正式版&lt;/p&gt;
-&lt;p&gt;​		2017 年，甲骨文公司发布了 Java9 正式版&lt;/p&gt;
-&lt;h3 id=&#34;java发展史上发生的大事件具体概括如下表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java发展史上发生的大事件具体概括如下表&#34;&gt;#&lt;/a&gt; Java 发展史上发生的大事件具体概括如下表&lt;/h3&gt;
-&lt;p&gt;各版本 JDK 引入的主要新特性&lt;br /&gt;
- JDK Version 1.0&lt;br /&gt;
- 开发代号为 Oak（橡树），于 1996-01-23 发行。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;时间&lt;/th&gt;
-&lt;th&gt;事件&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;1996 年 1 月&lt;/td&gt;
-&lt;td&gt;第一个 JDK-JDK1.0 诞生；&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;1996 年 4 月&lt;/td&gt;
-&lt;td&gt;10 个最主要的操作系统供应商申明将在其产品中嵌入 Java 技术；&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;1996 年 9 月&lt;/td&gt;
-&lt;td&gt;约 8.3 万个网页应用了 Java 技术来制作&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;1997 年 2 月 18 日&lt;/td&gt;
-&lt;td&gt;JDK1.1 发布&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;1997 年 4 月 2 日&lt;/td&gt;
-&lt;td&gt;JavaOne 会议召开，参与者逾一万人，创当时全球同类会议纪录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;1997 年 9 月&lt;/td&gt;
-&lt;td&gt;JavaDeveloperConnection 社区成员超过十万&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;1998 年 2 月&lt;/td&gt;
-&lt;td&gt;JDK1.1 被下载超过 2,000,000 次&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;1998 年 12 月 8 日&lt;/td&gt;
-&lt;td&gt;Java 2 企业平台 J2EE 发布 (J2EE1.2)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;1999 年 6 月&lt;/td&gt;
-&lt;td&gt;SUN 公司发布 Java 三个版本：标准版（J2SE）、企业版（J2EE）和微型版（J2ME）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2000 年 5 月 8 日&lt;/td&gt;
-&lt;td&gt;JDK1.3 发布&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2000 年 5 月 29 日&lt;/td&gt;
-&lt;td&gt;JDK1.4 发布&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2001 年 6 月 5 日&lt;/td&gt;
-&lt;td&gt;Nokia 宣布到 2003 年将出售 1 亿部支持 Java 的手机&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2001 年 9 月 24 日&lt;/td&gt;
-&lt;td&gt;J2EE1.3 发布&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2002 年 2 月 26 日&lt;/td&gt;
-&lt;td&gt;J2SE1.4 发布，此后 Java 的计算能力有了大幅提升&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2004 年 9 月 30 日&lt;/td&gt;
-&lt;td&gt;J2SE1.5 发布，成为 Java 语言发展史上的又一里程碑。为了表示该版本的重要性，J2SE1.5 更名为 Java SE 5.0；&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2005 年 6 月&lt;/td&gt;
-&lt;td&gt;JavaOne 大会召开，SUN 公司公开 Java SE 6。此时，Java 的各种版本已经更名，以取消其中的数字 “2”： J2ME 更名为 Java ME， J2SE 更名为 Java SE，J2EE 更名为 Java EE&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2006 年 12 月&lt;/td&gt;
-&lt;td&gt;SUN 公司发布 JRE6.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2009 年 12 月&lt;/td&gt;
-&lt;td&gt;SUN 公司发布 Java EE 6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2010 年 11 月&lt;/td&gt;
-&lt;td&gt;由于甲骨文对 Java 社区的不友善，因此 Apache 扬言将退出 JCP&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2011 年 7 月&lt;/td&gt;
-&lt;td&gt;甲骨文发布 Java SE 7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2014 年 3 月&lt;/td&gt;
-&lt;td&gt;甲骨文发表 Java SE 8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2017 年 9 月&lt;/td&gt;
-&lt;td&gt;甲骨文发表 Java SE 9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2018 年 3 月&lt;/td&gt;
-&lt;td&gt;甲骨文发布 Java SE 10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;j2se-version-12&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#j2se-version-12&#34;&gt;#&lt;/a&gt; J2SE Version 1.2&lt;/h3&gt;
-&lt;p&gt;开发代号为 Playground（操场），于 1998-12-08 发行。&lt;br /&gt;
-引入的新特性包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;引入集合（Collection）框架；&lt;/li&gt;
-&lt;li&gt;对字符串常量做内存映射；&lt;/li&gt;
-&lt;li&gt;引入 JIT（Just In Time）编译器；&lt;/li&gt;
-&lt;li&gt;引入对打包的 Java 文件进行数字签名；&lt;/li&gt;
-&lt;li&gt;引入控制授权访问系统资源的策略工具；&lt;/li&gt;
-&lt;li&gt;引入 JFC（Java Foundation Classes），包括 Swing 1.0、拖放和 Java 2D 类库；&lt;/li&gt;
-&lt;li&gt;引入 Java 插件；&lt;/li&gt;
-&lt;li&gt;在 JDBC 中引入可滚动结果集、BLOB、CLOB、批量更新和用户自定义类型；&lt;/li&gt;
-&lt;li&gt;在 Applet 中添加声音支持。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;j2se-version-13&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#j2se-version-13&#34;&gt;#&lt;/a&gt; J2SE Version 1.3&lt;/h3&gt;
-&lt;p&gt;开发代号为 Kestrel（红隼），于 2000-05-08 发行。&lt;br /&gt;
-引入的新特性包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;引入 Java Sound API；&lt;/li&gt;
-&lt;li&gt;jar 文件索引；&lt;/li&gt;
-&lt;li&gt;对 Java 的各个方面都做了大量优化和增强。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;j2se-version-14&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#j2se-version-14&#34;&gt;#&lt;/a&gt; J2SE Version 1.4&lt;/h3&gt;
-&lt;p&gt;开发代号为 Merlin（隼），于 2004-02-06 发行（首次在 JCP 下发行）。&lt;br /&gt;
-引入的新特性包括:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;XML 处理；&lt;/li&gt;
-&lt;li&gt;Java 打印服务；&lt;/li&gt;
-&lt;li&gt;引入 Logging API；&lt;br /&gt;
-引入 Java Web Start；&lt;/li&gt;
-&lt;li&gt;引入 JDBC 3.0 API；&lt;/li&gt;
-&lt;li&gt;引入断言；&lt;/li&gt;
-&lt;li&gt;引入 Preferences API；&lt;/li&gt;
-&lt;li&gt;引入链式异常处理；&lt;/li&gt;
-&lt;li&gt;支持 IPv6；&lt;/li&gt;
-&lt;li&gt;支持正则表达式；&lt;/li&gt;
-&lt;li&gt;引入 Image I/O slot machine API。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;java-version-se-50&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-50&#34;&gt;#&lt;/a&gt; Java Version SE 5.0&lt;/h3&gt;
-&lt;p&gt;开发代号为 Tiger（老虎），于 2004-09-30 发行。&lt;br /&gt;
-引入的新特性包括:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;引入泛型；&lt;/li&gt;
-&lt;li&gt;增强循环，可以使用迭代方式；&lt;/li&gt;
-&lt;li&gt;自动装箱与自动拆箱；&lt;/li&gt;
-&lt;li&gt;类型安全的枚举；&lt;/li&gt;
-&lt;li&gt;可变参数；&lt;/li&gt;
-&lt;li&gt;静态引入；&lt;/li&gt;
-&lt;li&gt;元数据（注解）；&lt;/li&gt;
-&lt;li&gt;引入 Instrumentation。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;java-version-se-6&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-6&#34;&gt;#&lt;/a&gt; Java Version SE 6&lt;/h3&gt;
-&lt;p&gt;开发代号为 Mustang（野马），于 2006-12-11 发行。&lt;br /&gt;
-引入的新特性包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;支持脚本语言；&lt;/li&gt;
-&lt;li&gt;引入 JDBC 4.0 API；&lt;/li&gt;
-&lt;li&gt;引入 Java Compiler API；&lt;/li&gt;
-&lt;li&gt;可插拔注解；&lt;/li&gt;
-&lt;li&gt;增加对 Native PKI (Public Key Infrastructure)、Java GSS (Generic Security Service)、Kerberos 和 LDAP (Lightweight Directory Access Protocol) 的支持；&lt;/li&gt;
-&lt;li&gt;继承 Web Services；做了很多优化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;java-version-se-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-7&#34;&gt;#&lt;/a&gt; Java Version SE 7&lt;/h3&gt;
-&lt;p&gt;开发代号是 Dolphin（海豚），于 2011-07-28 发行。&lt;br /&gt;
-引入的新特性包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;switch 语句块中允许以字符串作为分支条件；&lt;/li&gt;
-&lt;li&gt;在创建泛型对象时应用类型推断；&lt;/li&gt;
-&lt;li&gt;在一个语句块中捕获多种异常；&lt;/li&gt;
-&lt;li&gt;支持动态语言；&lt;/li&gt;
-&lt;li&gt;支持 try-with-resources；&lt;/li&gt;
-&lt;li&gt;引入 Java NIO.2 开发包；&lt;/li&gt;
-&lt;li&gt;数值类型可以用 2 进制字符串表示，并且可以在字符串表示中添加下划线；&lt;/li&gt;
-&lt;li&gt;钻石型语法；&lt;/li&gt;
-&lt;li&gt;null 值的自动处理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;java-version-se-8&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-8&#34;&gt;#&lt;/a&gt; Java Version SE 8&lt;/h3&gt;
-&lt;p&gt;开发代号是 Spider（蜘蛛），于 2014-03-18 发行。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;支持 lambda 支持；&lt;/li&gt;
-&lt;li&gt;增强日期与时间 API 的功能；&lt;/li&gt;
-&lt;li&gt;对垃圾回收的性能也进行了改进；&lt;/li&gt;
-&lt;li&gt;并且移除了 permgen 区。&lt;/li&gt;
-&lt;li&gt;Lambdas 表达式与 Functional 接口。&lt;/li&gt;
-&lt;li&gt;接口的默认与静态方法。&lt;/li&gt;
-&lt;li&gt;方法引用。&lt;/li&gt;
-&lt;li&gt;重复注解。&lt;/li&gt;
-&lt;li&gt;更好的类型推测机制。&lt;/li&gt;
-&lt;li&gt;扩展注解的支持。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;java-version-se-90&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-90&#34;&gt;#&lt;/a&gt; Java Version SE 9.0&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Java 平台级模块系统。&lt;/li&gt;
-&lt;li&gt;Linking。&lt;/li&gt;
-&lt;li&gt;JShell : 交互式 Java REPL。&lt;/li&gt;
-&lt;li&gt;改进的 Javadoc。&lt;/li&gt;
-&lt;li&gt;集合工厂方法。&lt;/li&gt;
-&lt;li&gt;改进的 Stream API。&lt;/li&gt;
-&lt;li&gt;私有接口方法。&lt;/li&gt;
-&lt;li&gt;HTTP/2。&lt;/li&gt;
-&lt;li&gt;多版本兼容 JAR。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;java-version-se-100&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java-version-se-100&#34;&gt;#&lt;/a&gt; Java Version SE 10.0&lt;/h3&gt;
-&lt;p&gt;​		本地变量类型推断，可以使用本地变量的初始化去推荐对应变量的类型。提升了并行垃圾收集器 G1 的性能，降低了收集延时。应用优化了启动时刻的数据共享，已经存在的类更好的共享。一个试用的即时编译器 Grral，只支持 linux x64 平台能够感知到 docker 的存在，如果运行在 linux 平台，可以感知到是否运行在 docker 容器中，可以查询到操作系统给容器分配的 cpu 和内存等等物理资源信息.&lt;br /&gt;
- 修复从主机 Java 线程连接到容器内 Java 线程的一个问题。更短的 jShell REPL tool 启动时间。提供了新接口，可以获取可变化的集合类，copyOf,Set.copyOf, 和 Map.copyOf 等方法创建一个新的集合对象，toUnmodifiableList, toUnmodifiableSet, 和 toUnmodifiableMap 获取不可修改对象，让 Stream 操作可以获取到不可变对象。&lt;br /&gt;
-​		本地变量类型推断。可以减少类型的生命，同时也保证了 static 类型的安全性。提供一个垃圾收集的接口去提供各个垃圾收集器隔离的能力，这样可以让内置的垃圾收集器正常运行，同时可以更容易向 hotspot 添加新的垃圾收集器。改进的并行的垃圾收集器 G1, 可以有效降低延迟。让 hotspot 支持寻找可用的任何内存，例如 NVDIMM 存储模块，用户可以去指定它，这也是为未来的异构内存提供支持。在 Linux/x64 平台提供一个实验性的即时编译器。让 jdk 使用单一仓库管理，现在分离在不同的仓库，这样给源码管理带来了一些困难。提升了内存的共享，减少了应用的启动时间。本地线程握手，可以在虚拟机的全局安全点暂停而不用等待其他的任何线程。为 openJDK 提供 Oracle 根认证，这样可以吸引更多的开发者使用 openJDK。&lt;/p&gt;
-&lt;p&gt;原文链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2doc2NhcmVjcm93L2FydGljbGUvZGV0YWlscy84MjMxODYzNg==&#34;&gt;https://blog.csdn.net/ghscarecrow/article/details/82318636&lt;/span&gt;&lt;/p&gt;
-&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://www.luotao.shop/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
-            <title>Java8新特性</title>
-            <link>http://www.luotao.shop/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
-            <category term="计算机科学" scheme="http://www.luotao.shop/categories/computer-science/" />
-            <category term="Java" scheme="http://www.luotao.shop/categories/computer-science/java/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/categories/computer-science/java/javase/" />
-            <category term="JavaSE" scheme="http://www.luotao.shop/tags/JavaSE/" />
-            <category term="编程笔记" scheme="http://www.luotao.shop/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" />
-            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;java8新特性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java8新特性&#34;&gt;#&lt;/a&gt; Java8 新特性&lt;/h2&gt;
 &lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kity@2.0.4/dist/kity.min.js&#34;&gt;&lt;/script&gt;&lt;script type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js&#34;&gt;&lt;/script&gt;&lt;script defer=&#34;true&#34; type=&#34;text&amp;#x2F;javascript&#34; src=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js&#34;&gt;&lt;/script&gt;&lt;link rel=&#34;stylesheet&#34; type=&#34;text&amp;#x2F;css&#34; href=&#34;https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css&#34;&gt; ]]></description>
         </item>
     </channel>
