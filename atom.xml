@@ -13,7 +13,7 @@
     <category term="资源分享" />
     <entry>
         <id>http://scottalive.github.io/computer-science/java/arithmetic/4-%E5%8A%9B%E6%89%A3-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC-%E4%B8%AD%E7%AD%89/</id>
-        <title>力扣算法题-3-整数反转</title>
+        <title>力扣算法题-4-整数反转</title>
         <link rel="alternate" href="http://scottalive.github.io/computer-science/java/arithmetic/4-%E5%8A%9B%E6%89%A3-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC-%E4%B8%AD%E7%AD%89/"/>
         <content type="html">&lt;h2 id=&#34;整数反转&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#整数反转&#34;&gt;#&lt;/a&gt; 整数反转&lt;/h2&gt;
 &lt;p&gt;给你一个 32 位的有符号整数  &lt;code&gt;x&lt;/code&gt;  ，返回将  &lt;code&gt;x&lt;/code&gt;  中的数字部分反转后的结果。&lt;/p&gt;
