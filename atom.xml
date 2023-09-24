@@ -12,9 +12,9 @@
     <category term="博文" />
     <category term="资源分享" />
     <entry>
-        <id>http://scottalive.github.io/computer-science/java/arithmetic/5-%E5%8A%9B%E6%89%A3-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89%20/</id>
+        <id>http://scottalive.github.io/computer-science/java/arithmetic/5-%E5%8A%9B%E6%89%A3-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89/</id>
         <title>力扣算法题-5-最长回文子串</title>
-        <link rel="alternate" href="http://scottalive.github.io/computer-science/java/arithmetic/5-%E5%8A%9B%E6%89%A3-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89%20/"/>
+        <link rel="alternate" href="http://scottalive.github.io/computer-science/java/arithmetic/5-%E5%8A%9B%E6%89%A3-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89/"/>
         <content type="html">&lt;h2 id=&#34;最长回文子串&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最长回文子串&#34;&gt;#&lt;/a&gt; 最长回文子串&lt;/h2&gt;
 &lt;p&gt;给你一个字符串  &lt;code&gt;s&lt;/code&gt; ，找到  &lt;code&gt;s&lt;/code&gt;  中最长的回文子串。&lt;/p&gt;
 &lt;p&gt;如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。&lt;/p&gt;
